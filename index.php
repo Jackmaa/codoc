@@ -8,11 +8,12 @@ require_once './vendor/altorouter/altorouter/AltoRouter.php';
 $router = new AltoRouter();
 $router->setBasePath('/codec');
 
-
-
 // Define routes
 //HOME
 $router->map('GET', '/', 'ControllerPost#home', 'home');
+
+//USER
+$router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 
 // Match the current request
 $match = $router->match();
