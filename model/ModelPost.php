@@ -14,4 +14,11 @@ class ModelPost extends Model {
 
         return $arrayobj;
     }
+
+    public function read(int $id){
+        $req = $this->getDb()->prepare('SELECT `id_post`, `title`, `content`, `description`, `published_date`, `id_user` FROM post WHERE `id_post` = :id');
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->execute();
+        return new Post($req->fetch(PDO::FETCH_ASSOC));
+    }
 }

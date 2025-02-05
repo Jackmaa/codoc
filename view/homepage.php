@@ -16,7 +16,7 @@
                 <p><?= $data->post->getContent();?></p>
                 <p><?= $data->username; ?></p>
                 <p><?= $data->post->getPublished_date();?></p>
-                <a href="" class="btn">Click me</a>
+                <a href="<?= $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
             </article>
         <?php endforeach; ?>
     </section>

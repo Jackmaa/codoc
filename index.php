@@ -6,13 +6,16 @@ require_once './vendor/altorouter/altorouter/AltoRouter.php';
 
 // Initialize AltoRouter
 $router = new AltoRouter();
-$router->setBasePath('/codec');
+$router->setBasePath('/codoc');
 
 
 
 // Define routes
-//HOME
+//HOMEPAGE
 $router->map('GET', '/', 'ControllerPost#home', 'home');
+
+//POSTPAGE
+$router->map('GET', '/postpage/[i:id]', 'ControllerPost#read', 'readPost');
 
 // Match the current request
 $match = $router->match();
