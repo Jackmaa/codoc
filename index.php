@@ -6,7 +6,7 @@ require_once './vendor/altorouter/altorouter/AltoRouter.php';
 
 // Initialize AltoRouter
 $router = new AltoRouter();
-$router->setBasePath('/codec');
+$router->setBasePath('/codoc');
 
 // Define routes
 //HOME
