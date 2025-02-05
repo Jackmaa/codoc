@@ -11,10 +11,11 @@
         <h1>Les derniers articles</h1>
         <?php foreach ($datas as $data): ?>
             <article>
-                <h2><?php echo $data->getTitle(); ?></h2>
-                <p><?php echo $data->getDescription(); ?></p>
-                <p><?php echo $data->getContent(); ?></p>
-                <p><?php echo $data->getPublished_date(); ?></p>
+                <h2><?= $data->post->getTitle(); ?></h2>
+                <p><?= $data->post->getDescription(); ?></p>
+                <p><?= $data->post->getContent();?></p>
+                <p><?= $data->username; ?></p>
+                <p><?= $data->post->getPublished_date();?></p>
                 <a href="" class="btn">Click me</a>
             </article>
         <?php endforeach; ?>

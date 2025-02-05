@@ -9,7 +9,7 @@ class ModelPost extends Model {
         $arrayobj = [];
 
         while($data = $req->fetch(PDO::FETCH_ASSOC)){
-            $arrayobj[] = new Post($data);
+            $arrayobj[] = new PostDTO(new Post($data), $data['username']);
         }
 
         return $arrayobj;
