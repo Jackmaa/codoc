@@ -1,6 +1,6 @@
 <?php
 
-class ModelUser {
+class ModelUser extends Model {
 
     public function getUser(int $id){
         $user = $this->getDb()->prepare('SELECT `id_user`, `username`, `email`, `password`, `signup_date`, `status` FROM `user`  WHERE `id_user` = :id');
