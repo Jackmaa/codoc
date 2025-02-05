@@ -9,7 +9,7 @@ class Post {
     private $published_date;
     private $id_user;
 
-    public function __cinstruct($datas){
+    public function __construct($datas){
         $this->hydrate($datas);
     }
 

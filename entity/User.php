@@ -9,7 +9,7 @@ class User {
     private $signup_date;
     private $status;
 
-    public function __construst($datas){
+    public function __construct($datas){
         $this->hydrate($datas);
     }
 

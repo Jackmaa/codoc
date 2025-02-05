@@ -8,9 +8,11 @@ require_once './vendor/altorouter/altorouter/AltoRouter.php';
 $router = new AltoRouter();
 $router->setBasePath('/codec');
 
+
+
 // Define routes
 //HOME
-$router->map('GET', '/', '', 'home');
+$router->map('GET', '/', 'ControllerPost#home', 'home');
 
 // Match the current request
 $match = $router->match();
