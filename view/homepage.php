@@ -18,6 +18,7 @@
                 <p><?= $data->post->getPublished_date()->format('m/d/Y');?></p>
                 <a href="<?= $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
             </article>
+            <a href="<?= $router->generate('login'); ?>" class="btn">Login</a>
         <?php endforeach; ?>
     </section>
 </body>
