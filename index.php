@@ -8,14 +8,14 @@ require_once './vendor/altorouter/altorouter/AltoRouter.php';
 $router = new AltoRouter();
 $router->setBasePath('/codoc');
 
-
-
 // Define routes
 //HOMEPAGE
 $router->map('GET', '/', 'ControllerPost#home', 'home');
 
 //POSTPAGE
 $router->map('GET', '/postpage/[i:id]', 'ControllerPost#read', 'readPost');
+//USER
+$router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 
 // Match the current request
 $match = $router->match();

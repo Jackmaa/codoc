@@ -2,75 +2,74 @@
 
 class User {
 
-    private $id;
+    private $id_user;
     private $username;
     private $email;
     private $password;
     private $signup_date;
     private $status;
 
-    public function __construct($datas){
+    public function __construct(array $datas) {
         $this->hydrate($datas);
     }
 
-    public function hydrate(array $datas){
-        foreach($datas as $key => $value){
+    public function hydrate(array $datas) {
+        foreach ($datas as $key => $value) {
             $method = 'set' . ucfirst($key);
 
-            if(method_exists($this, $method)){
+            if (method_exists($this, $method)) {
                 $this->$method($value);
             }
         }
     }
 
     //GETTERS
-    public function getId(){
-        return $this->id;
+    public function getId_user() {
+        return $this->id_user;
     }
 
-    public function getUsername(){
+    public function getUsername() {
         return $this->username;
     }
 
-    public function getEmail(){
+    public function getEmail() {
         return $this->email;
     }
 
-    public function getPassword(){
+    public function getPassword() {
         return $this->password;
     }
 
-    public function getSignup_date(){
+    public function getSignup_date() {
         return $this->signup_date;
     }
 
-    public function getStatus(){
+    public function getStatus() {
         return $this->status;
     }
 
     //SETTERS
-    public function setId(int $id){
-        $this->id =$id;
+    public function setId_user(int $id_user) {
+        $this->id_user = $id_user;
     }
 
-    public function setUsername(string $username){
+    public function setUsername(string $username) {
         $this->username = $username;
     }
 
-    public function setEmail(string $email){
+    public function setEmail(string $email) {
         $this->email = $email;
     }
 
-    public function setPassword(string $password){
-        $this->password =$password;
+    public function setPassword(string $password) {
+        $this->password = $password;
     }
 
-
-    public function setSignup_date(string $signup_date){
+    public function setSignup_date(string $signup_date) {
         $this->signup_date = $signup_date;
     }
 
-    public function setStatus(int $status){
+    public function setStatus(int $status) {
         $this->status = $status;
     }
 }
