@@ -67,7 +67,7 @@ class Post {
     }
 
     public function setPublished_date(string $published_date){
-        $this->published_date = $published_date;
+        $this->published_date = new DateTime($published_date);
     }
 
     public function setId_user(int $id_user){

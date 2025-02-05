@@ -15,7 +15,7 @@
                 <p><?= $data->post->getDescription(); ?></p>
                 <p><?= $data->post->getContent();?></p>
                 <p><?= $data->username; ?></p>
-                <p><?= $data->post->getPublished_date();?></p>
+                <p><?= $data->post->getPublished_date()->format('m/d/Y');?></p>
                 <a href="<?= $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
             </article>
         <?php endforeach; ?>
