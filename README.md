@@ -13,4 +13,8 @@ CODe Original Content
 And both of the names describe very well what our goal is with the blog, that's why I included
 this little bit of story in this file.
 
-Project by @Chris181076, @Nmec2, @NeferNedjer, @Jackmaa
+## Project by 
+[@Chris181076](https://github.com/Chris181076)
+[@Nmec2](https://github.com/Nmec2)
+[@NeferNedjer](https://github.com/NeferNedjer)
+[@Jackmaa](https://github.com/Jackmaa)
