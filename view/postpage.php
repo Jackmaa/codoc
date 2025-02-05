@@ -9,7 +9,7 @@
     <h1><?= $data->getTitle();?></h1>
     <p><?= $data->getDescription(); ?></p>
     <p><?= $data->getContent(); ?></p>
-    <p><?= $data->getPublished_date(); ?></p>
+    <p><?= $data->getPublished_date()->format('m/d/Y'); ?></p>
     <a href="<?= $router->generate('home');?>"><<< Retour</a>
 </body>
 </html>

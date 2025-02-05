@@ -66,7 +66,7 @@ class User {
     }
 
     public function setSignup_date(string $signup_date) {
-        $this->signup_date = $signup_date;
+        $this->signup_date = new DateTime($signup_date);
     }
 
     public function setStatus(int $status) {
