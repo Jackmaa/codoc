@@ -2,12 +2,11 @@
 
 class ControllerPost {
 
-    public function home(){
+    public function home() {
         global $router;
-        $model =new ModelPost();
-        $modelUser = new ModelUser();
+        $model = new ModelPost();
         $datas = $model->drawPage();
         //var_dump($datas);
-        require_once('./view/homepage.php');
+        require_once './view/homepage.php';
     }
 }
