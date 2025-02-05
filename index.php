@@ -9,9 +9,11 @@ $router = new AltoRouter();
 $router->setBasePath('/codoc');
 
 // Define routes
-//HOME
+//HOMEPAGE
 $router->map('GET', '/', 'ControllerPost#home', 'home');
 
+//POSTPAGE
+$router->map('GET', '/postpage/[i:id]', 'ControllerPost#read', 'readPost');
 //USER
 $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 

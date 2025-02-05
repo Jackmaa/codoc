@@ -2,7 +2,7 @@
 
 class Post {
 
-    private $id;
+    private $id_post;
     private $title;
     private $content;
     private $description;
@@ -24,8 +24,8 @@ class Post {
     }
 
     //GETTERS
-    public function getId(){
-        return $this->id;
+    public function getId_post(){
+        return $this->id_post;
     }
 
     public function getTitle(){
@@ -50,8 +50,8 @@ class Post {
 
 
     //SETTERS
-    public function setId(int $id){
-        $this->id = $id;
+    public function setId_post(int $id_post){
+        $this->id_post = $id_post;
     }
 
     public function setTitle(string $title){
