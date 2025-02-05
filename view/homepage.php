@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/assets/css/styles.css">
     <title>Homepage</title>
 </head>
 <body>
-    <h1>Les derniers articles</h1>
-    <?php foreach($datas as $data): ?>
-        <article>
-            <h2><?= $data->getTitle(); ?></h2>
-            <p><?= $data->getDescription(); ?></p>
-            <p><?= $data->getContent();?></p>
-            <p><?= $data->getPublished_date();?></p>
-        </article>
-    <?php endforeach; ?>
+    <section>
+        <h1>Les derniers articles</h1>
+        <?php foreach ($datas as $data): ?>
+            <article>
+                <h2><?php echo $data->getTitle(); ?></h2>
+                <p><?php echo $data->getDescription(); ?></p>
+                <p><?php echo $data->getContent(); ?></p>
+                <p><?php echo $data->getPublished_date(); ?></p>
+                <a href="" class="btn">Click me</a>
+            </article>
+        <?php endforeach; ?>
+    </section>
 </body>
 </html>
