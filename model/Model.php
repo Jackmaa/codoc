@@ -6,32 +6,31 @@ abstract class Model {
     private $cost;
 
     //GETTERS
-    protected function getDb(){
-        if(self::$db == null){
+    protected function getDb() {
+        if (self::$db == null) {
             self::setDb();
         }
         return self::$db;
     }
 
-    public function getCost(){
+    public function getCost() {
         return self::$cost;
     }
 
-
     //SETTERS
-    private static function setDb(){
-        try{
+    private static function setDb() {
+        try {
             self::$db = new PDO('mysql:host=localhost;dbname=codoc', 'root', '');
-        }catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
 
-    public function setCost($timeTarget){
+    public function setCost($timeTarget) {
         $cost = 10;
-        do{
+        do {
             $cost++;
-            $tart = microtime(true);
+            $start = microtime(true);
             password_hash("test", PASSWORD_BCRYPT, ["cost" => $cost]);
             $end = microtime(true);
         } while (($end - $start) < $timeTarget);
