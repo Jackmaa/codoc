@@ -1,4 +1,4 @@
-|||||||||||||||||||||||||||||| CODOC |||||||||||||||||||||||||||||||||||||
+# CODOC 
 Why Codoc ? What does it mean ?
 We chose Codoc because we were searching for a name easy to remember, and also a palyndrome.
 And the name Codoc came up, thanks to @Nmec.
