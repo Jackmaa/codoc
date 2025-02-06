@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Autoload dependencies
 require_once './vendor/autoload.php';
 require_once './vendor/altorouter/altorouter/AltoRouter.php';
@@ -16,6 +16,7 @@ $router->map('GET', '/', 'ControllerPost#home', 'home');
 $router->map('GET', '/postpage/[i:id]', 'ControllerPost#read', 'readPost');
 //USER
 $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
+$router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
 
 // Match the current request
 $match = $router->match();

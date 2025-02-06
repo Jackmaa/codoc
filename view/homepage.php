@@ -8,17 +8,21 @@
 </head>
 <body>
     <section>
+        <?php if (isset($_SESSION['name'])): ?>
+            <h2>Bonjour&nbsp;<?php echo $_SESSION['name']; ?></h2>
+            <a href="<?php echo $router->generate('logout'); ?>"> logout </a>
+        <?php endif; ?>
         <h1>Les derniers articles</h1>
         <?php foreach ($datas as $data): ?>
             <article>
-                <h2><?= $data->post->getTitle(); ?></h2>
-                <p><?= $data->post->getDescription(); ?></p>
-                <p><?= $data->post->getContent();?></p>
-                <p><?= $data->username; ?></p>
-                <p><?= $data->post->getPublished_date()->format('m/d/Y');?></p>
-                <a href="<?= $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
+                <h2><?php echo $data->post->getTitle(); ?></h2>
+                <p><?php echo $data->post->getDescription(); ?></p>
+                <p><?php echo $data->post->getContent(); ?></p>
+                <p><?php echo $data->username; ?></p>
+                <p><?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
+                <a href="<?php echo $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
             </article>
-            <a href="<?= $router->generate('login'); ?>" class="btn">Login</a>
+            <a href="<?php echo $router->generate('login'); ?>" class="btn">Login</a>
         <?php endforeach; ?>
     </section>
 </body>
