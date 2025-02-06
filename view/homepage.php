@@ -8,10 +8,12 @@
 </head>
 <body>
     <section>
-        <?php if (isset($_SESSION['name'])): ?>
+        <?php if (isset($_SESSION['name'])){ ?>
             <h2>Bonjour&nbsp;<?php echo $_SESSION['name']; ?></h2>
-            <a href="<?php echo $router->generate('logout'); ?>"> logout </a>
-        <?php endif; ?>
+            <a href="<?php echo $router->generate('logout'); ?>" class="btn"> logout </a>
+        <?php } else { ?>
+            <a href="<?php echo $router->generate('login'); ?>" class="btn">Login</a>
+            <?php } ?>
         <h1>Les derniers articles</h1>
         <?php foreach ($datas as $data): ?>
             <article>
@@ -22,7 +24,7 @@
                 <p><?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
                 <a href="<?php echo $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
             </article>
-            <a href="<?php echo $router->generate('login'); ?>" class="btn">Login</a>
+            
         <?php endforeach; ?>
     </section>
 </body>
