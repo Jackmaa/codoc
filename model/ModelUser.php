@@ -12,7 +12,7 @@ class ModelUser extends Model {
     public function getUserByEmail(string $email) {
         $user = $this->getDb()->prepare(
             'SELECT
-                *
+                `id_user`, `username`, `email`, `password`
             FROM
                 `user`
             WHERE
@@ -20,10 +20,9 @@ class ModelUser extends Model {
         $user->bindParam(':email', $email, PDO::PARAM_STR);
         $user->execute();
 
-        if ($user->rowCount() > 0) {
-            $data = $user->fetch(PDO::FETCH_ASSOC);
-            return $data ? new User($data) : null;
-        }
+        $data = $user->fetch(PDO::FETCH_ASSOC);
+
+        return $data ? new User($data) : null;
     }
 
     public function isLoggedIn() {
@@ -32,7 +31,7 @@ class ModelUser extends Model {
         }
     }
 
-    protected function register(string $username, string $email, string $password) {
+    protected function createUser(string $username, string $email, string $password) {
         $user = $this->getDb()->prepare(
             'INSERT INTO
                 `user` (`username`, `email`, `password`, `signup_date`)
