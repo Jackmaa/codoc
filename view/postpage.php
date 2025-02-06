@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/assets/css/styles.css">
     <title><?= $data->getTitle();?></title>
 </head>
 <body>
-    <h1><?= $data->getTitle();?></h1>
-    <p><?= $data->getDescription(); ?></p>
-    <p><?= $data->getContent(); ?></p>
-    <p><?= $data->getPublished_date()->format('m/d/Y'); ?></p>
-    <a href="<?= $router->generate('home');?>"><<< Retour</a>
+
+    <article>
+        <h1><?= $data->getTitle();?></h1>
+        <p><?= $data->getDescription(); ?></p>
+        <p><?= $data->getContent(); ?></p>
+        <p><?= $data->getPublished_date()->format('m/d/Y'); ?></p>
+        <a href="<?= $router->generate('home');?>" class="btn">Retour</a>
+    </article>
 </body>
 </html>
