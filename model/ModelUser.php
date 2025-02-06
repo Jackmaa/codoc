@@ -44,4 +44,8 @@ class ModelUser extends Model {
         $user->bindParam(':password', $password, PDO::PARAM_STR);
         $user->execute();
     }
+
+    public function checkUser(){
+        
+    }
 }
