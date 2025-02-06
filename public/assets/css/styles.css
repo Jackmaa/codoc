@@ -88,18 +88,6 @@ a.btn::after {
   transition: all 0.2s ease-in-out;
 }
 
-/* a.btn:hover::before {
-  inset: 0;
-  right: -0.1rem;
-  top: -0.1rem;
-}
-a.btn:hover::after {
-  inset: 0;
-  left: -0.1rem;
-  bottom: -0.3rem;
-} */
-
-
 a.btn:hover::before {
   inset: 2px;
   right: -0.1rem;

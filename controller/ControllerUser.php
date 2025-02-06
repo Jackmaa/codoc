@@ -19,7 +19,6 @@ class ControllerUser {
                     session_start();
                     // Set the user ID in the session
                     $_SESSION['id_user'] = $user->getId_user();
-                    // Redirect to the homepage
                     var_dump($_SESSION);
                     exit;
                 } else {

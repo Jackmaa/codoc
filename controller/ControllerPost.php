@@ -9,12 +9,12 @@ class ControllerPost {
         require_once './view/homepage.php';
     }
 
-    public function read($id){
+    public function read($id) {
 
         global $router;
         $model = new ModelPost();
-        $data = $model->read($id);
+        $data  = $model->read($id);
         //var_dump($data);
-        require_once('./view/postpage.php');
+        require_once './view/postpage.php';
     }
 }
