@@ -31,4 +31,18 @@ class ModelUser extends Model {
             header('Location: /codoc');
         }
     }
+
+    protected function register(string $username, string $email, string $password) {
+        $user = $this->getDb()->prepare(
+            'INSERT INTO
+                `user` (`username`, `email`, `password`, `signup_date`)
+            VALUES
+                (:username, :email, :password, NOW())');
+
+        $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => $this->getCost()]);
+        $user->bindParam(':username', $username, PDO::PARAM_STR);
+        $user->bindParam(':email', $email, PDO::PARAM_STR);
+        $user->bindParam(':password', $password, PDO::PARAM_STR);
+        $user->execute();
+    }
 }
