@@ -21,8 +21,7 @@ class ControllerUser {
                     // Set the user ID in the session
                     $_SESSION['id_user'] = $user->getId_user();
                     $_SESSION['name']    = $user->getUsername();
-                    header('Location: /codoc');
-                    var_dump($_SESSION);
+                    header('Location: /codoc'); // Redirect to the homepage
                     exit;
                 } else {
                     // Display an error message
