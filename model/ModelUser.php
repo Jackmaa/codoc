@@ -21,10 +21,14 @@ class ModelUser extends Model {
         $user->execute();
 
         if ($user->rowCount() > 0) {
-            $login = new User($user->fetch(PDO::FETCH_ASSOC));
-            var_dump($login);
-            return $login;
+            $data = $user->fetch(PDO::FETCH_ASSOC);
+            return $data ? new User($data) : null;
         }
     }
 
+    public function isLoggedIn() {
+        if (isset($_SESSION['id'])) {
+            header('Location: /codoc');
+        }
+    }
 }
