@@ -14,6 +14,7 @@
             <a href="<?php echo $router->generate('logout'); ?>" class="btn"> logout </a>
         <?php } else { ?>
             <a href="<?php echo $router->generate('login'); ?>" class="btn">Login</a>
+            <a href="<?= $router->generate('register') ?>" class="btn">Register</a></p>
             <?php } ?>
         <h1>Les derniers articles</h1>
         <?php foreach ($datas as $data): ?>
