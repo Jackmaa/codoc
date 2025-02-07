@@ -17,6 +17,7 @@ $router->map('GET', '/postpage/[i:id]', 'ControllerPost#read', 'readPost');
 //USER
 $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
+$router->map('GET|POST', '/register', 'ControllerUser#register', 'register');
 
 // Match the current request
 $match = $router->match();

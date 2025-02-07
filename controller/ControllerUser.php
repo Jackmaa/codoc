@@ -40,5 +40,21 @@ class ControllerUser {
         header('Location: /codoc');
     }
 
-    public function register() {}
+    public function register() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (! empty($_POST['email']) && ! empty($_POST['password']) && ! empty($_POST['password_verify'])) {
+                if ($_POST['password'] === $_POST['password_verify']) {
+                    $model = new ModelUser();
+                    //vincent add logic to check mail + username if ok
+                    // model->createUser($_POST['username'], $_POST['email'], $_POST['password']);
+                } else {
+                    echo 'Passwords do not match.';
+                }
+            } else {
+                echo 'Email, password, and password verify are required.';
+            }
+        } else {
+            require_once './view/register.php';
+        }
+    }
 }
