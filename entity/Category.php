@@ -9,7 +9,7 @@ class Category {
         $this->hydrate($datas);
     }
 
-    public function hydrate($dastas){
+    public function hydrate($datas){
         foreach($datas as $key => $value){
             $method = 'set' . ucfirst($key);
 
