@@ -13,10 +13,6 @@ abstract class Model {
         return self::$db;
     }
 
-    public function getCost() {
-        return self::$cost;
-    }
-
     //SETTERS
     private static function setDb() {
         try {
