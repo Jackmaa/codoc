@@ -45,8 +45,11 @@ class ControllerUser {
             if (! empty($_POST['email']) && ! empty($_POST['password']) && ! empty($_POST['password_verify'])) {
                 if ($_POST['password'] === $_POST['password_verify']) {
                     $model = new ModelUser();
-                    //vincent add logic to check mail + username if ok
-                    // model->createUser($_POST['username'], $_POST['email'], $_POST['password']);
+                   if( $model->checkUserMail($_POST['email']) && $model->checkUserName($_POST['username'])){
+                        $model->createUser($_POST['username'], $_POST['email'], $_POST['password']);
+                   }else{
+                    echo "Email or username is already taken.";
+                   }  
                 } else {
                     echo 'Passwords do not match.';
                 }
