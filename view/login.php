@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./public/assets/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/assets/img/light.svg">
     <title><?php echo $title ?></title>
 </head>
@@ -24,6 +25,6 @@
             <input type="submit" name="submit" value="Login">
         </div>
     </form>
-    <p>Don't have an account? <a href="/register">Register</a></p>
+    <p>Don't have an account? <a href="<?= $router->generate('register') ?>" class="btn">Register</a></p>
 </body>
 </html>
