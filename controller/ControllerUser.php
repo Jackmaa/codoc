@@ -47,14 +47,19 @@ class ControllerUser {
                     $model = new ModelUser();
                    if( $model->checkUserMail($_POST['email']) && $model->checkUserName($_POST['username'])){
                         $model->createUser($_POST['username'], $_POST['email'], $_POST['password']);
+                        echo "Compte crée avec succès !";
+                        require_once('./view/login.php');
                    }else{
                     echo "Email or username is already taken.";
+                    require_once('./view/register.php');
                    }  
                 } else {
                     echo 'Passwords do not match.';
+                    require_once('./view/register.php');
                 }
             } else {
                 echo 'Email, password, and password verify are required.';
+                require_once('./view/register.php');
             }
         } else {
             require_once './view/register.php';

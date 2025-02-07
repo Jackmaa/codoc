@@ -38,7 +38,7 @@ class ModelUser extends Model {
             VALUES
                 (:username, :email, :password, NOW())');
 
-        $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => $this->getCost()]);
+        $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => $this->setCost(0.250)]);
         $user->bindParam(':username', $username, PDO::PARAM_STR);
         $user->bindParam(':email', $email, PDO::PARAM_STR);
         $user->bindParam(':password', $password, PDO::PARAM_STR);
@@ -46,7 +46,7 @@ class ModelUser extends Model {
     }
 
     public function checkUserMail(string $email){
-        $user = $this->getDb()->prepare('SELECT `email` FROM user `email` = :email');
+        $user = $this->getDb()->prepare('SELECT `email` FROM user WHERE `email` = :email');
         $user->bindParam(':email', $email, PDO::PARAM_STR);
         $user->execute();
         $data = $user->fetch(PDO::FETCH_ASSOC);
@@ -54,7 +54,6 @@ class ModelUser extends Model {
 
         if($data){
             $isChecked = false;
-            echo "Email déjà existant.";
         } else{
             $isChecked = true;
         }
@@ -62,7 +61,7 @@ class ModelUser extends Model {
     }
 
     public function checkUserName(string $username){
-        $user = $this->getDb()->prepare('SELECT `username` FROM user `username` = :username');
+        $user = $this->getDb()->prepare('SELECT `username` FROM user WHERE `username` = :username');
         $user->bindParam(':username', $username, PDO::PARAM_STR);
         $user->execute();
         $data = $user->fetch(PDO::FETCH_ASSOC);
@@ -70,7 +69,6 @@ class ModelUser extends Model {
 
         if($data){
             $isChecked = false;
-            echo "Username déjà existant.";
         } else{
             $isChecked = true;
         }
