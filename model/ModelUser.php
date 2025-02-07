@@ -31,7 +31,7 @@ class ModelUser extends Model {
         }
     }
 
-    protected function createUser(string $username, string $email, string $password) {
+    public function createUser(string $username, string $email, string $password) {
         $user = $this->getDb()->prepare(
             'INSERT INTO
                 `user` (`username`, `email`, `password`, `signup_date`)
@@ -45,7 +45,35 @@ class ModelUser extends Model {
         $user->execute();
     }
 
-    public function checkUser(){
-        
+    public function checkUserMail(string $email){
+        $user = $this->getDb()->prepare('SELECT `email` FROM user `email` = :email');
+        $user->bindParam(':email', $email, PDO::PARAM_STR);
+        $user->execute();
+        $data = $user->fetch(PDO::FETCH_ASSOC);
+        $isChecked = false;
+
+        if($data){
+            $isChecked = false;
+            echo "Email déjà existant.";
+        } else{
+            $isChecked = true;
+        }
+        return $isChecked;
+    }
+
+    public function checkUserName(string $username){
+        $user = $this->getDb()->prepare('SELECT `username` FROM user `username` = :username');
+        $user->bindParam(':username', $username, PDO::PARAM_STR);
+        $user->execute();
+        $data = $user->fetch(PDO::FETCH_ASSOC);
+        $isChecked = false;
+
+        if($data){
+            $isChecked = false;
+            echo "Username déjà existant.";
+        } else{
+            $isChecked = true;
+        }
+        return $isChecked;
     }
 }
