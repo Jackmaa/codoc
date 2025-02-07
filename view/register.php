@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./public/assets/img/light.svg">
     <title>Codoc | Register An Account</title>
 
     <form action="/codoc/register" method="POST">
