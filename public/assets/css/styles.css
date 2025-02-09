@@ -6,6 +6,12 @@
   padding: 0;
 }
 
+/* @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: smooth;
+  }
+} */
+
 body {
   display: flex;
   flex-direction: column;
@@ -97,4 +103,148 @@ a.btn:hover::after {
   inset: 2px;
   left: -0.1rem;
   bottom: -0.1rem;
+}
+
+input {
+  outline: 3px solid hsl(203, 30%, 26%);
+}
+
+input:focus:valid,
+input:valid:not(:placeholder-shown) {
+  outline-color: var(--clr-success);
+}
+
+input:invalid:not(:placeholder-shown) {
+  outline-color: var(--clr-error);
+}
+
+input:focus:invalid:not(:placeholder-shown) {
+  outline-color: var(--clr-warning);
+}
+
+.hint {
+  color: var(--clr-warning);
+}
+.error {
+  color: var(--clr-error);
+}
+
+.hint,
+.error {
+  display: none;
+}
+
+input:focus:invalid:not(:placeholder-shown) ~ .hint {
+  display: block;
+}
+
+input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
+  display: block;
+  animation: form-error 250ms 3;
+}
+
+@keyframes form-error {
+  25% {
+    translate: -5px;
+  }
+  75% {
+    translate: 5px;
+  }
+}
+
+@layer general-styling {
+  :root {
+    --clr-success: hsl(143, 100%, 26%);
+    --clr-warning: hsl(43, 100%, 66%);
+    --clr-error: hsl(348, 55%, 49%);
+  }
+
+  form {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 30ch;
+    margin: 2rem auto;
+  }
+
+  .form-group {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  html {
+    font-size: 2rem;
+    font-family: system-ui;
+    color-scheme: dark;
+  }
+
+  label {
+    font-size: 0.75rem;
+  }
+
+  input,
+  button {
+    font: inherit;
+  }
+
+  input {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 0;
+    background-color: hsl(201, 31%, 11%);
+  }
+}
+
+/*----------------------INPUT SYLES -------------------------------*/
+input {
+  outline: 3px solid hsl(203, 30%, 26%);
+}
+
+input:valid {
+  outline-color: var(--clr-success);
+}
+
+input:invalid {
+  outline-color: var(--clr-error);
+}
+
+@layer general-styling {
+  :root {
+    --clr-success: hsl(143, 100%, 26%);
+    --clr-warning: hsl(43, 100%, 66%);
+    --clr-error: hsl(348, 55%, 49%);
+  }
+
+  form {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 30ch;
+    margin: 2rem auto;
+  }
+
+  .form-group {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  html {
+    font-size: 2rem;
+    font-family: system-ui;
+    color-scheme: dark;
+  }
+
+  label {
+    font-size: 0.75rem;
+  }
+
+  input,
+  button {
+    font: inherit;
+  }
+
+  input {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 0;
+    background-color: hsl(201, 31%, 11%);
+  }
 }
