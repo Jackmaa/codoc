@@ -32,4 +32,16 @@ class ModelPost extends Model {
         $req->execute();
         
     }
+
+    public function deletePost(int $id_post){
+        
+        $getpost = $this->getDb()->prepare('SELECT * FROM post WHERE `id_post` = :id_post');
+        $getpost->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $getpost->execute();
+        if($getpost->rowcount() > 0){
+            $deletepost = $this->getDb()->prepare('DELETE FROM post WHERE `id_post` = :id_post');
+            $deletepost->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+            $deletepost->execute();
+        }
+    }
 }

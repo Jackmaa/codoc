@@ -22,6 +22,9 @@ $router->map('GET|POST', '/register', 'ControllerUser#register', 'register');
 //CREATEPOST
 $router->map('GET|POST', '/post/create', 'ControllerPost#create', 'createpost');
 
+//DELETEPOST
+$router->map('GET', '/delete/[i:id_post]', 'ControllerPost#delete', 'deletepost');
+
 // Match the current request
 $match = $router->match();
 

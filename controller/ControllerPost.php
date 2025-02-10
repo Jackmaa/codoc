@@ -29,7 +29,7 @@ class ControllerPost {
                 echo "Nouceau codoc enregistré avec succès !";
                 header('Location: /codoc');
             }else{
-                var_dump($_POST);
+                
                 $error = "Veuillez remplir tous les champs !";
                 require_once('./view/createpost.php');
             }
@@ -39,4 +39,16 @@ class ControllerPost {
         }
         
     }
+
+    public function delete(int $id_post){
+
+        global $router;
+        var_dump($id_post);
+        $model =new ModelPost();
+        $data = $model->deletePost($id_post);
+        header('Location: /codoc');
+    }
+
+    
+
 }

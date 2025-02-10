@@ -14,6 +14,7 @@
         <p><?= $data->getDescription(); ?></p>
         <p><?= $data->getContent(); ?></p>
         <p><?= $data->getPublished_date()->format('m/d/Y'); ?></p>
+        <a href="<?php echo $router->generate('deletepost', ['id_post' => $data->getId_post()]); ?>" class="btn">Delete</a>
         <a href="<?= $router->generate('home');?>" class="btn">Retour</a>
     </article>
 </body>
