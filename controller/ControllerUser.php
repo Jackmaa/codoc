@@ -42,6 +42,7 @@ class ControllerUser {
     }
 
     public function register() {
+        global $router;
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (! empty($_POST['email']) && ! empty($_POST['password']) && ! empty($_POST['password_verify'])) {
                 if ($_POST['password'] === $_POST['password_verify']) {
@@ -49,6 +50,7 @@ class ControllerUser {
                    if( $model->checkUserMail($_POST['email']) && $model->checkUserName($_POST['username'])){
                         $model->createUser($_POST['username'], $_POST['email'], $_POST['password']);
                         echo "Compte crée avec succès !";
+                        
                         require_once('./view/login.php');
                    }else{
                     echo "Email or username is already taken.";

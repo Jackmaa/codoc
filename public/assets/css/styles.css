@@ -58,7 +58,8 @@ article {
   margin: 1rem;
 }
 
-a.btn {
+a.btn, button.btn {
+  outline:  none;
   position: relative;
   display: inline-block;
   color: #000;
@@ -68,7 +69,7 @@ a.btn {
   margin-top: 1rem;
 }
 
-a.btn::before {
+a.btn::before, button.btn::before {
   background-color: #f809b0;
   border-radius: 0.5em;
   content: "";
@@ -81,7 +82,7 @@ a.btn::before {
   transition: all 0.3s ease-in-out;
 }
 
-a.btn::after {
+a.btn::after, button.btn::after {
   background-color: #14f6eb;
   border-radius: 0.5em;
   content: "";
@@ -105,9 +106,6 @@ a.btn:hover::after {
   bottom: -0.1rem;
 }
 
-input {
-  outline: 3px solid hsl(203, 30%, 26%);
-}
 
 input:focus:valid,
 input:valid:not(:placeholder-shown) {
@@ -186,7 +184,10 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
     font: inherit;
   }
 
-  input {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    outline: 3px solid hsl(203, 30%, 26%);
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     border: 0;
@@ -194,57 +195,3 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
   }
 }
 
-/*----------------------INPUT SYLES -------------------------------*/
-input {
-  outline: 3px solid hsl(203, 30%, 26%);
-}
-
-input:valid {
-  outline-color: var(--clr-success);
-}
-
-input:invalid {
-  outline-color: var(--clr-error);
-}
-
-@layer general-styling {
-  :root {
-    --clr-success: hsl(143, 100%, 26%);
-    --clr-warning: hsl(43, 100%, 66%);
-    --clr-error: hsl(348, 55%, 49%);
-  }
-
-  form {
-    display: grid;
-    gap: 0.75rem;
-    max-width: 30ch;
-    margin: 2rem auto;
-  }
-
-  .form-group {
-    display: grid;
-    gap: 0.25rem;
-  }
-
-  html {
-    font-size: 2rem;
-    font-family: system-ui;
-    color-scheme: dark;
-  }
-
-  label {
-    font-size: 0.75rem;
-  }
-
-  input,
-  button {
-    font: inherit;
-  }
-
-  input {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    border: 0;
-    background-color: hsl(201, 31%, 11%);
-  }
-}
