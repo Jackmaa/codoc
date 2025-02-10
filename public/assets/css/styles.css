@@ -348,6 +348,7 @@ form {
   }
 
   .form-box {
+    padding: 0px;
     bottom: 0;
     width: 100%;
     height: 70%;
@@ -395,7 +396,7 @@ form {
 
 @media screen and (max-width: 400px) {
   .form-box {
-    padding: 20px;
+    padding: 0px;
   }
 
   .toggle-panel h1 {
