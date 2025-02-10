@@ -14,7 +14,7 @@
     <?php endif?>
     <form action="/codoc/login" method="POST">
         <div>
-            <label for="email">Email:</label><br>
+            <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
         </div>
         <div>
@@ -22,7 +22,7 @@
             <input type="password" id="password" name="password" required>
         </div>
         <div>
-            <input type="submit" name="submit" value="Login">
+            <button type="submit" name="submit" value="Login" class="btn">Login</button>
         </div>
     </form>
     <p>Don't have an account? <a href="<?= $router->generate('register') ?>" class="btn">Register</a></p>
