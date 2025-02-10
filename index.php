@@ -19,6 +19,9 @@ $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
 $router->map('GET|POST', '/register', 'ControllerUser#register', 'register');
 
+//CREATEPOST
+$router->map('GET|POST', '/post/create', 'ControllerPost#create', 'createpost');
+
 // Match the current request
 $match = $router->match();
 

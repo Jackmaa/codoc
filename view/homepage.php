@@ -12,6 +12,7 @@
         <?php if (isset($_SESSION['name'])){ ?>
             <h2>Bonjour&nbsp;<?php echo $_SESSION['name']; ?></h2>
             <a href="<?php echo $router->generate('logout'); ?>" class="btn"> logout </a>
+            <a href="<?php echo $router->generate('createpost') ?>" class="btn">Create post</a>
         <?php } else { ?>
             <a href="<?php echo $router->generate('login'); ?>" class="btn">Login</a>
             <a href="<?= $router->generate('register') ?>" class="btn">Register</a></p>

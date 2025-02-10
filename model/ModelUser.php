@@ -3,6 +3,7 @@
 class ModelUser extends Model {
 
     public function getUser(int $id) {
+
         $user = $this->getDb()->prepare('SELECT `id_user`, `username`, `email`, `password`, `signup_date`, `status` FROM `user`  WHERE `id_user` = :id');
         $user->bindParam(':id', $id, PDO::PARAM_INT);
         $user->execute();
@@ -10,6 +11,7 @@ class ModelUser extends Model {
     }
 
     public function getUserByEmail(string $email) {
+
         $user = $this->getDb()->prepare(
             'SELECT
                 `id_user`, `username`, `email`, `password`
@@ -26,12 +28,14 @@ class ModelUser extends Model {
     }
 
     public function isLoggedIn() {
+
         if (isset($_SESSION['id'])) {
             header('Location: /codoc');
         }
     }
 
     public function createUser(string $username, string $email, string $password) {
+
         $user = $this->getDb()->prepare(
             'INSERT INTO
                 `user` (`username`, `email`, `password`, `signup_date`)
@@ -46,6 +50,7 @@ class ModelUser extends Model {
     }
 
     public function checkUserMail(string $email){
+
         $user = $this->getDb()->prepare('SELECT `email` FROM user WHERE `email` = :email');
         $user->bindParam(':email', $email, PDO::PARAM_STR);
         $user->execute();
@@ -61,6 +66,7 @@ class ModelUser extends Model {
     }
 
     public function checkUserName(string $username){
+
         $user = $this->getDb()->prepare('SELECT `username` FROM user WHERE `username` = :username');
         $user->bindParam(':username', $username, PDO::PARAM_STR);
         $user->execute();
@@ -74,4 +80,6 @@ class ModelUser extends Model {
         }
         return $isChecked;
     }
+
+    
 }
