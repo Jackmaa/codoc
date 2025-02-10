@@ -8,25 +8,56 @@
     <title><?php echo $title ?></title>
 </head>
 <body>
-    <h1>Login</h1>
     <?php if (isset($error)): ?>
         <p><?php echo $error ?></p>
     <?php endif?>
-    <form action="/codoc/login" method="POST">
-        <div class="form-group">
-            <label for="email">Email:</label>
+    <div class="container">
+    <div class="form-box login">
+        <form action="/codoc/login" method="POST">
+            <h1>Login</h1>
+            <div class="input-box">
             <input type="email" id="email" name="email" required placeholder="example@codoc.com" aria-errormessage='email-error'>
-            <div class="error" id='name-error' aria-live="polite">Please enter your mail</div>
-        </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
+            </div>
+            <div class="input-box">
             <input type="password" id="password" name="password" required placeholder="********" aria-errormessage='password-error'>
-            <div class="error" id='name-error' aria-live="polite">Please enter your password</div>
+            </div>
+            <button type="submit" class="formbtn">Login</button>
+        </form>
+    </div>
+
+    <div class="form-box register">
+        <form action="/codoc/register" method="POST">
+            <h1>Registration</h1>
+            <div class="input-box">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="input-box">
+            <input type="email" id="email" name="email" required placeholder="example@codoc.com" aria-errormessage='email-error'>
+            </div>
+            <div class="input-box">
+            <input type="password" id="password" name="password" required placeholder="********" aria-errormessage='password-error'>
+            </div>
+            <div class="input-box">
+            <input type="password" id="passwordpassword_verify" name="password_verify" required placeholder="********" aria-errormessage='password-error'>
+            </div>
+            <button type="submit" class="formbtn">Register</button>
+        </form>
+    </div>
+
+    <div class="toggle-box">
+        <div class="toggle-panel toggle-left">
+            <h1>Hello, Welcome!</h1>
+            <p>Don't have an account?</p>
+            <button class="formbtn register-btn">Register</button>
         </div>
-        <div class="form-group">
-            <input type="submit" name="submit" value="Login">
+
+        <div class="toggle-panel toggle-right">
+            <h1>Welcome Back!</h1>
+            <p>Already have an account?</p>
+            <button class="formbtn login-btn">Login</button>
         </div>
-            <p>Don't have an account? <div class="relative"><a href="<?php echo $router->generate('register') ?>" class="btn">Register</a></div></p>
-    </form>
+    </div>
+</div>
+    <script src="./public/assets/js/main.js"></script>
 </body>
 </html>
