@@ -12,9 +12,12 @@
   }
 } */
 
+html {
+  font-family: system-ui;
+  color-scheme: dark;
+}
+
 body {
-  display: flex;
-  flex-direction: column;
   box-sizing: border-box;
   scroll-behavior: smooth;
   line-height: 1.6rem;
@@ -33,9 +36,6 @@ li,
 label {
   text-decoration: none;
   list-style: none;
-  font-family: system-ui, "Segoe UI", "Roboto", "Helvetica Neue", "Noto Sans",
-    "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.35rem;
   padding: 0;
 }
@@ -53,60 +53,98 @@ h6 {
   line-height: 1.75rem;
 }
 
+:root {
+  --clr-success: hsl(143, 100%, 26%);
+  --clr-warning: hsl(43, 100%, 66%);
+  --clr-error: hsl(348, 55%, 49%);
+}
+
+/*----------------------GLOBAL -------------------------------*/
+
+@property --＠color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsl(318, 94%, 50%);
+}
+
+@property --＠color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsl(177, 93%, 52%);
+}
+
+/* keyframes that change the color variable */
+@keyframes gradient-change {
+  to {
+    --＠color-1: hsl(177, 93%, 52%);
+    --＠color-2: hsl(310 100% 59%);
+  }
+}
+
 article {
   justify-self: center;
   margin: 1rem;
 }
 
-a.btn, button.btn {
-  outline:  none;
+a.btn {
+  outline: none;
   position: relative;
   display: inline-block;
-  color: #000;
-  background-color: white;
-  padding: 0.2em 0.5em;
-  border-radius: 0.5em;
+  color: hsl(0, 0%, 100%);
+  background: hsla(0, 0%, 100%, 0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
   margin-top: 1rem;
 }
 
-a.btn::before, button.btn::before {
-  background-color: #f809b0;
-  border-radius: 0.5em;
+a.btn::before {
+  border-bottom-right-radius: 1.125rem;
+  border-top-left-radius: 1.125rem;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   content: "";
   width: 100%;
   height: 100%;
   position: absolute;
-  bottom: -0.1rem;
-  left: -0.1rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.2rem;
   z-index: -1;
-  transition: all 0.3s ease-in-out;
+  animation: gradient-change 2s linear infinite alternate;
+  background: linear-gradient(
+    /* 
+      in oklch produces more vibrant gradient results 
+      */ to right
+      in oklch,
+    var(--＠color-1),
+    var(--＠color-2) /* use the variables in a gradient (or wherever!) */
+  );
 }
 
-a.btn::after, button.btn::after {
-  background-color: #14f6eb;
-  border-radius: 0.5em;
-  content: "";
-  top: -0.1rem;
-  right: -0.11rem;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  transition: all 0.2s ease-in-out;
+h1 {
+  /* apply variable changes over time */
+  animation: gradient-change 2s linear infinite alternate;
+  padding-block: 1rem;
+  background: linear-gradient(
+    /* 
+      in oklch produces more vibrant gradient results 
+      */ to right
+      in oklch,
+    var(--＠color-1),
+    var(--＠color-2) /* use the variables in a gradient (or wherever!) */
+  );
+
+  /* old browser support */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* modern browser version */
+  background-clip: text;
+  color: transparent;
 }
 
-a.btn:hover::before {
-  inset: 2px;
-  right: -0.1rem;
-  top: -0.125rem;
-}
-a.btn:hover::after {
-  inset: 2px;
-  left: -0.1rem;
-  bottom: -0.1rem;
-}
-
-
+/*----------------------FORM -------------------------------*/
 input:focus:valid,
 input:valid:not(:placeholder-shown) {
   outline-color: var(--clr-success);
@@ -132,9 +170,9 @@ input:focus:invalid:not(:placeholder-shown) {
   display: none;
 }
 
-input:focus:invalid:not(:placeholder-shown) ~ .hint {
+/* input:focus:not(:placeholder-shown) ~ .hint {                 // to uncomment if you start using regex and minvalue for Password
   display: block;
-}
+} */
 
 input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
   display: block;
@@ -150,48 +188,34 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
   }
 }
 
-@layer general-styling {
-  :root {
-    --clr-success: hsl(143, 100%, 26%);
-    --clr-warning: hsl(43, 100%, 66%);
-    --clr-error: hsl(348, 55%, 49%);
-  }
-
-  form {
-    display: grid;
-    gap: 0.75rem;
-    max-width: 30ch;
-    margin: 2rem auto;
-  }
-
-  .form-group {
-    display: grid;
-    gap: 0.25rem;
-  }
-
-  html {
-    font-size: 2rem;
-    font-family: system-ui;
-    color-scheme: dark;
-  }
-
-  label {
-    font-size: 0.75rem;
-  }
-
-  input,
-  button {
-    font: inherit;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    outline: 3px solid hsl(203, 30%, 26%);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    border: 0;
-    background-color: hsl(201, 31%, 11%);
-  }
+form {
+  display: grid;
+  gap: 0.75rem;
+  width: fit-content;
+  margin: 2rem auto;
+  font-size: 2rem;
 }
 
+.form-group {
+  display: grid;
+  gap: 0.25rem;
+}
+
+input,
+label,
+button {
+  font: inherit;
+  margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  outline: 3px solid hsl(203, 30%, 26%);
+  font-size: inherit;
+  outline: 3px solid hsl(203, 30%, 26%);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  border: 0;
+  background-color: hsl(201, 31%, 11%);
+}

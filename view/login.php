@@ -13,18 +13,20 @@
         <p><?php echo $error ?></p>
     <?php endif?>
     <form action="/codoc/login" method="POST">
-        <div>
+        <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required placeholder="example@codoc.com" aria-errormessage='email-error'>
+            <div class="error" id='name-error' aria-live="polite">Please enter your mail</div>
         </div>
-        <div>
+        <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required placeholder="********" aria-errormessage='password-error'>
+            <div class="error" id='name-error' aria-live="polite">Please enter your password</div>
         </div>
-        <div>
-            <button type="submit" name="submit" value="Login" class="btn">Login</button>
+        <div class="form-group">
+            <input type="submit" name="submit" value="Login">
         </div>
+            <p>Don't have an account? <div class="relative"><a href="<?php echo $router->generate('register') ?>" class="btn">Register</a></div></p>
     </form>
-    <p>Don't have an account? <a href="<?= $router->generate('register') ?>" class="btn">Register</a></p>
 </body>
 </html>
