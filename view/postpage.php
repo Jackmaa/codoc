@@ -8,8 +8,19 @@
     <title><?= $data->getTitle();?></title>
 </head>
 <body>
+    <?php 
+        //fil d'ariane
+        $url = $_SERVER['REQUEST_URI']; 
+        $url = ltrim($url, $url[0]);
+        $url = str_replace('/', ' > ', $url);
+        $url = str_replace('codoc', '<a href="'.$router->generate('home').'">codoc</a>', $url);
+        $url = str_replace('postpage', '<a href="'.$router->generate('home').'">postpage</a>', $url);
+        echo $url;
+    
+    ?>
 
     <article>
+        
         <h1><?= $data->getTitle();?></h1>
         <p><?= $data->getDescription(); ?></p>
         <p><?= $data->getContent(); ?></p>
