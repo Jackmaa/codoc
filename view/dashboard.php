@@ -9,7 +9,7 @@
 <body>
     <nav>
         <div id="toggle-container">
-            <button id="modeToggle">Toggle Mode</button>
+            <button id="modeToggle"><img src="./public/assets/img/lightmode.svg" alt="" id="modeIcon"></button>
         </div>
     </nav>
     <header>

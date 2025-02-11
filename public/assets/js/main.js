@@ -2,45 +2,46 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("modeToggle");
+  const modeIcon = document.getElementById("modeIcon");
   const body = document.body;
 
   // Check for saved user preference, if any, on page load
   const savedMode = localStorage.getItem("mode");
+  const systemPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  const applyMode = (mode) => {
+    body.classList.remove("light-mode", "dark-mode");
+    body.classList.add(mode);
+    localStorage.setItem("mode", mode);
+    updateButton(mode);
+  };
+
   if (savedMode) {
-    body.classList.add(savedMode);
-    updateButtonText(savedMode);
+    applyMode(savedMode);
   } else {
-    // Default to system preference if no saved preference exists
-    const systemPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    if (systemPrefersDark) {
-      body.classList.add("dark-mode");
-      updateButtonText("dark-mode");
-    } else {
-      body.classList.add("light-mode");
-      updateButtonText("light-mode");
-    }
+    applyMode(systemPrefersDark ? "dark-mode" : "light-mode");
   }
 
   // Toggle mode on button click
   modeToggle.addEventListener("click", () => {
-    if (body.classList.contains("dark-mode")) {
-      body.classList.remove("dark-mode");
-      body.classList.add("light-mode");
-      localStorage.setItem("mode", "light-mode");
-      updateButtonText("light-mode");
-    } else {
-      body.classList.remove("light-mode");
-      body.classList.add("dark-mode");
-      localStorage.setItem("mode", "dark-mode");
-      updateButtonText("dark-mode");
-    }
+    const isDarkMode = body.classList.contains("dark-mode");
+    applyMode(isDarkMode ? "light-mode" : "dark-mode");
   });
 
-  // Update button text based on current mode
-  function updateButtonText(mode) {
-    modeToggle.textContent =
-      mode === "dark-mode" ? "Switch to Light Mode" : "Switch to Dark Mode";
+  // Update button icon and accessibility label
+  function updateButton(mode) {
+    const isDarkMode = mode === "dark-mode";
+    modeIcon.setAttribute(
+      "src",
+      isDarkMode
+        ? "./public/assets/img/lightmode.svg"
+        : "./public/assets/img/darkmode.svg"
+    );
+    modeToggle.setAttribute(
+      "aria-label",
+      isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
+    );
   }
 });
