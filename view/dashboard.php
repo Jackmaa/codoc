@@ -7,6 +7,11 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <nav>
+        <div id="toggle-container">
+            <button id="modeToggle">Toggle Mode</button>
+        </div>
+    </nav>
     <header>
         <img src="./public/assets/img/light.svg" alt="codoc logo" class="header-logo">
         <div class="user-card">
@@ -23,5 +28,7 @@
             </a>
         </section>
     </main>
+
+    <script src="./public/assets/js/main.js"></script>
 </body>
 </html>
