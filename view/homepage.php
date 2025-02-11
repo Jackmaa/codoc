@@ -22,10 +22,10 @@
         <?php foreach ($datas as $data): ?>
             <article>
                 <h2><?php echo $data->post->getTitle(); ?></h2>
+                <p><?php echo $data->username; ?> - <?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
                 <p><?php echo $data->post->getDescription(); ?></p>
                 <p><?php echo $data->post->getContent(); ?></p>
-                <p><?php echo $data->username; ?></p>
-                <p><?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
+                <p></p>
                 <a href="<?php echo $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
             </article>
             
