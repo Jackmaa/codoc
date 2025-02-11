@@ -86,7 +86,7 @@ h6 {
 
 section > h1 {
   justify-self: center;
-
+}
 .error404 {
   display: flex;
   height: 100vh;
@@ -97,7 +97,7 @@ section > h1 {
   color: hsl(310 100% 59%);
 }
 
-.error404__content{
+.error404__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -108,28 +108,28 @@ section > h1 {
   color: #333;
 }
 
-.error404__content> p{
+.error404__content > p {
   line-height: 2.5rem;
 }
 
-.error404__content>div> input {
+.error404__content > div > input {
   font-size: 1.5rem;
   padding: 0.5rem;
   margin-top: 3rem;
   border-radius: 10px;
 }
 
-.error404__content>div> button {
+.error404__content > div > button {
   padding: 0.5rem 1rem;
   border-radius: 10px;
   font-size: 1.5rem;
-  background-color:hsl(310 100% 59%);
+  background-color: hsl(310 100% 59%);
   color: hsl(177, 93%, 52%);
 }
 
-.error404__content>div> button:hover {
+.error404__content > div > button:hover {
   background-color: hsl(177, 93%, 52%);
-  color:hsl(310 100% 59%);
+  color: hsl(310 100% 59%);
 }
 
 article {
@@ -137,13 +137,12 @@ article {
   margin: 1rem;
   width: 20vw;
   padding: 3rem;
-  border: 1px solid #14F6EB;
+  border: 1px solid #14f6eb;
   background-color: transparent;
   backdrop-filter: blur(120%);
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
   border-radius: 20px;
 }
-
 
 a.btn {
   position: relative;
@@ -468,7 +467,6 @@ form {
 }
 
 @media screen and (max-width: 500px) {
-  
 }
 
 @media screen and (max-width: 400px) {
