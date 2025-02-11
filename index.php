@@ -18,6 +18,7 @@ $router->map('GET', '/postpage/[i:id]', 'ControllerPost#read', 'readPost');
 $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
 $router->map('POST', '/register', 'ControllerUser#register', 'register');
+$router->map('GET', '/dashboard', 'ControllerUser#dashboard', 'dashboard');
 
 //CREATEPOST
 $router->map('GET|POST', '/post/create', 'ControllerPost#create', 'createpost');

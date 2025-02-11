@@ -54,6 +54,8 @@ h6 {
 }
 
 :root {
+  --pink-primary: hsl(318, 94%, 50%);
+  --blue-primary: hsl(177, 93%, 52%);
   --clr-success: hsl(143, 100%, 26%);
   --clr-warning: hsl(43, 100%, 66%);
   --clr-error: hsl(348, 55%, 49%);
@@ -91,6 +93,7 @@ a.btn {
   display: inline-block;
   color: #000;
   background-color: white;
+  font-weight: 800;
   padding: 0.2em 0.5em;
   border-radius: 0.5em;
   margin-top: 1rem;
@@ -410,5 +413,45 @@ form {
 
   .toggle-panel h1 {
     font-size: 30px;
+  }
+}
+/*----------------------DASHBOARD -------------------------------*/
+header {
+  user-select: none;
+  width: 100%;
+  display: grid;
+  place-self: center;
+  justify-items: center;
+  padding-block: 1rem;
+  margin-inline: 1rem;
+  & .header-logo {
+    width: 50px;
+  }
+  & .user-card {
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      width: 40px;
+      aspect-ratio: 1;
+      border-radius: 100%;
+      box-shadow: 0 0 3px 3px var(--blue-primary);
+    }
+
+    & .greetings {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+section#tasks {
+  padding-inline: 1rem;
+
+  & .btn-codoc:hover svg {
+    transition: all 0.5s ease-in-out;
+    transform: rotate(360deg);
   }
 }

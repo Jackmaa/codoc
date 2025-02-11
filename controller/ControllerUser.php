@@ -68,4 +68,8 @@ class ControllerUser {
             require_once './view/login.php';
         }
     }
+
+    public function dashboard() {
+        require_once './view/dashboard.php';
+    }
 }
