@@ -6,15 +6,21 @@
   padding: 0;
 }
 
-/* @media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: smooth;
   }
-} */
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #ffffff;
+  }
+}
 
 html {
   font-family: system-ui;
-  color-scheme: dark;
 }
 
 body {
@@ -59,6 +65,20 @@ h6 {
   --clr-success: hsl(143, 100%, 26%);
   --clr-warning: hsl(43, 100%, 66%);
   --clr-error: hsl(348, 55%, 49%);
+}
+
+/* Light Mode */
+body.light-mode {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  color-scheme: dark;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 /*----------------------GLOBAL -------------------------------*/
