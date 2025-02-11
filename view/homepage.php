@@ -9,6 +9,7 @@
 </head>
 <body>
     <section>
+        <a href="./view/404.php">404</a>
         <?php if (isset($_SESSION['name'])) {?>
             <h2>Bonjour&nbsp;<?php echo $_SESSION['name']; ?></h2>
             <a href="<?php echo $router->generate('logout'); ?>" class="btn"> logout </a>
@@ -27,6 +28,7 @@
                 <p><?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
                 <a href="<?php echo $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" class="btn">Read</a>
             </article>
+            
 
         <?php endforeach; ?>
     </section>
