@@ -81,6 +81,10 @@ body.dark-mode {
   color: #ffffff;
 }
 
+button#modeToggle img {
+  background: none;
+}
+
 /*----------------------GLOBAL -------------------------------*/
 
 @property --＠color-1 {
