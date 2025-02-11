@@ -50,7 +50,6 @@ class ControllerPost {
     }
 
     public function notfound(){
-        global $router;
         require_once('./view/404.php');
     }
 
