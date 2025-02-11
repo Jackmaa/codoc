@@ -16,7 +16,7 @@
             <a href="<?php echo $router->generate('createpost') ?>" class="btn">Create post</a>
         <?php } else {?>
             <a href="<?php echo $router->generate('login'); ?>" class="btn">Login</a>
-            <a href="<?php echo $router->generate('register')?>" class="btn">Register</a></p>
+            <a href="<?php echo $router->generate('login') ?>" class="btn">Register</a></p>
             <?php }?>
         <h1>Les derniers articles</h1>
         <?php foreach ($datas as $data): ?>
