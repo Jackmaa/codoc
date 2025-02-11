@@ -57,5 +57,6 @@ if (is_array($match)) {
     }
 } else {
     // Error: No route matched
-    echo "Error: No route matched.";
+    //echo "Error: No route matched.";
+    require_once('./view/404.php');
 }

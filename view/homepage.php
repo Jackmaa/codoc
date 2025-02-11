@@ -9,7 +9,6 @@
 </head>
 <body>
     <section>
-        <a href="./view/404.php">404</a>
         <?php if (isset($_SESSION['name'])) {?>
             <h2>Bonjour&nbsp;<?php echo $_SESSION['name']; ?></h2>
             <a href="<?php echo $router->generate('logout'); ?>" class="btn"> logout </a>

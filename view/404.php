@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/assets/css/styles.css">
+    <link rel="stylesheet" href="./public/assets/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/assets/img/light.svg">
     <title>404 Not found</title>
 </head>
@@ -22,7 +22,7 @@
         </div>
         <div class="error404__content">
             <figure>
-                <img src="../public/assets/img/404.webp" alt="404 not found">
+                <img src="./public/assets/img/404.webp" alt="404 not found">
             </figure>
         </div>
     </div>
