@@ -81,10 +81,24 @@ h6 {
   }
 }
 
+/* HOMEPAGE */
+
+section > h1 {
+  justify-self: center;
+}
+
 article {
   justify-self: center;
   margin: 1rem;
+  width: 20vw;
+  padding: 3rem;
+  border: 1px solid #14F6EB;
+  background-color: transparent;
+  backdrop-filter: blur(120%);
+  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  border-radius: 20px;
 }
+
 
 a.btn {
   position: relative;
@@ -352,6 +366,10 @@ form {
 }
 
 @media screen and (max-width: 650px) {
+  article {
+    width: 60vw;
+  }
+
   .container {
     height: calc(100vh - 40px);
   }
@@ -401,6 +419,10 @@ form {
   .container.active .toggle-panel.toggle-right {
     bottom: 0;
   }
+}
+
+@media screen and (max-width: 500px) {
+  
 }
 
 @media screen and (max-width: 400px) {
