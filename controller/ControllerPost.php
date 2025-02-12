@@ -25,7 +25,7 @@ class ControllerPost {
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if(!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['description']) && !empty($_POST['id_user'])){
                 $model = new ModelPost();
-                $model->createPost($_POST['title'], $_POST['content'], $_POST['description'], $_POST['id_user']);
+                $model->createPost($_POST['title'], nl2br($_POST['content']), $_POST['description'], $_POST['id_user']);
                 echo "Nouceau codoc enregistré avec succès !";
                 header('Location: /codoc');
             }else{
