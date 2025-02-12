@@ -90,15 +90,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //LIKE DE POSTS
 
+const divLikes = document.querySelectorAll(".likes");
 const likeButton = document.querySelectorAll(".like_button");
-console.log(likeButton);
+
+
+
+for(const element of divLikes){
+  let likeCount = 0;
+  var likeCounters = document.createElement("span");
+  likeCounters.innerHTML = likeCount;
+  element.appendChild(likeCounters);
+}
+
+
 for (const element of likeButton) { 
   element.setAttribute("fill","white");
   element.addEventListener("click", () => {
+    let likeCount = parseInt(element.nextElementSibling.innerHTML);
     if (element.getAttribute("fill") === "red"){
       element.setAttribute("fill","white");
+      likeCount--;
+      element.nextElementSibling.innerHTML = likeCount;
     }else{
       element.setAttribute("fill","red");
+      likeCount++;
+      element.nextElementSibling.innerHTML = likeCount;
     }
     
   });

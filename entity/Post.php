@@ -8,6 +8,7 @@ class Post {
     private $description;
     private $published_date;
     private $id_user;
+    private $likes;
 
     public function __construct($datas){
         $this->hydrate($datas);
