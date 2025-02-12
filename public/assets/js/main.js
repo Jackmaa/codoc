@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("modeToggle");
   const modeIcon = document.getElementById("modeIcon");
+  const modeLogo = document.getElementById("logoCodoc");
   const body = document.body;
 
   // Check for saved user preference, if any, on page load
@@ -43,5 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "aria-label",
       isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
     );
+    modeLogo.setAttribute("fill", isDarkMode ? "white" : "black");
   }
 });
