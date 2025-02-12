@@ -87,3 +87,21 @@ document.addEventListener("DOMContentLoaded", () => {
     modeLogo.setAttribute("fill", isDarkMode ? "white" : "black");
   }
 });
+
+//LIKE DE POSTS
+
+const likeButton = document.querySelectorAll(".like_button");
+console.log(likeButton);
+for (const element of likeButton) { 
+  element.setAttribute("fill","white");
+  element.addEventListener("click", () => {
+    if (element.getAttribute("fill") === "red"){
+      element.setAttribute("fill","white");
+    }else{
+      element.setAttribute("fill","red");
+    }
+    
+  });
+};
+
+

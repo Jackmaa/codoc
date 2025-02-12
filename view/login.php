@@ -58,6 +58,6 @@
         </div>
     </div>
 </div>
-    <script src="./public/assets/js/login.js"></script>
+    <script src="./public/assets/js/form-animation.js"></script>
 </body>
 </html>

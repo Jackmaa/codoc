@@ -236,6 +236,18 @@ h1 {
   color: transparent;
 }
 
+.article_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.like_button {
+  width: 30px;
+  height: 30px;
+}
+
 /*----------------------FORM -------------------------------*/
 input:focus:valid,
 input:valid:not(:placeholder-shown) {
