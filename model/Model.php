@@ -16,7 +16,7 @@ abstract class Model {
     //SETTERS
     private static function setDb() {
         try {
-            self::$db = new PDO('mysql:host=localhost;dbname=codoc', 'root', '');
+            self::$db = new PDO('mysql:host=localhost;dbname=codoc;charset=utf8mb4', 'root', '');
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
