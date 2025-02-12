@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("modeToggle");
   const modeIcon = document.getElementById("modeIcon");
   const modeLogo = document.getElementById("logoCodoc");
+  // const modeMatrix = document.getElementById("matrixMode");
   const body = document.body;
 
   // Check for saved user preference, if any, on page load
@@ -30,6 +31,45 @@ document.addEventListener("DOMContentLoaded", () => {
     const isDarkMode = body.classList.contains("dark-mode");
     applyMode(isDarkMode ? "light-mode" : "dark-mode");
   });
+
+  // matrixMode.addEventListener("click", () => {
+  //   const canvas = document.createElement("canvas");
+  //   canvas.setAttribute("id", "matrixCanvas");
+  //   const ctx = canvas.getContext("2d");
+  //   canvas.width = window.innerWidth;
+  //   canvas.height = window.innerHeight;
+
+  //   const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZあいうえおカキクケコ";
+  //   const fontSize = 16;
+  //   const columns = canvas.width / fontSize;
+  //   const drops = Array(Math.floor(columns)).fill(1);
+  //   body.prepend(canvas);
+
+  //   function drawMatrixEffect() {
+  //     ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+  //     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  //     ctx.fillStyle = "#00FF00";
+  //     ctx.font = `${fontSize}px monospace`;
+
+  //     for (let i = 0; i < drops.length; i++) {
+  //       const text = letters[Math.floor(Math.random() * letters.length)];
+  //       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+  //       if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+  //         drops[i] = 0;
+  //       }
+  //       drops[i]++;
+  //     }
+  //   }
+
+  //   setInterval(drawMatrixEffect, 50);
+
+  //   window.addEventListener("resize", () => {
+  //     canvas.width = window.innerWidth;
+  //     canvas.height = window.innerHeight;
+  //   });
+  // });
 
   // Update button icon and accessibility label
   function updateButton(mode) {
