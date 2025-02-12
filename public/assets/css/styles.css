@@ -434,6 +434,12 @@ form {
   box-shadow: none;
 }
 
+@media screen and (max-width: 1050px) {
+  article {
+    width: 40vw;
+  }
+}
+
 @media screen and (max-width: 650px) {
   article {
     width: 60vw;
