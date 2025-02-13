@@ -7,7 +7,7 @@ ob_start();
         <?php foreach ($datas as $data): ?>
             <article>
                 <h2><?php echo $data->post->getTitle(); ?></h2>
-                <p><?php echo $data->username; ?> -<?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
+                <p><?php echo $data->username; ?> - <?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
                 <p><?php echo $data->post->getDescription(); ?></p>
                 <p><?php echo $data->post->getContent(); ?></p>
                 <div class="article_footer">

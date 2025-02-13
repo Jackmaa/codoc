@@ -262,6 +262,7 @@ h1 {
 
 .likes {
   position: relative;
+  cursor: pointer;
   
 }
 
