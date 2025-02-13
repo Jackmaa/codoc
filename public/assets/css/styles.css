@@ -65,8 +65,8 @@ h6 {
   --clr-success: hsl(143, 100%, 26%);
   --clr-warning: hsl(43, 100%, 66%);
   --clr-error: hsl(348, 55%, 49%);
-  --box-shadow-unlike : 0px 0px 30px 11px var(--blue-primary);
-  --box-shadow-like : 0px 0px 30px 12px var(--pink-primary);
+  --box-shadow-unlike: 0px 0px 30px 11px var(--blue-primary);
+  --box-shadow-like: 0px 0px 30px 12px var(--pink-primary);
 }
 
 /* Light Mode */
@@ -111,12 +111,12 @@ button#modeToggle img {
 
 /*-------------------HEADER----------------------*/
 
-ul{
+ul {
   display: flex;
   justify-content: center;
 }
 
-/* HOMEPAGE */
+/*----------------------- HOMEPAGE-------------------- */
 
 section > h1 {
   justify-self: center;
@@ -177,8 +177,6 @@ article {
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
   border-radius: 20px;
 }
-
-
 
 a.btn {
   position: relative;
@@ -263,10 +261,10 @@ h1 {
 .likes {
   position: relative;
   cursor: pointer;
-  
 }
 
-.glow-unlike, .glow-like {
+.glow-unlike,
+.glow-like {
   position: absolute;
   top: 35%;
   left: 35%;
@@ -330,7 +328,6 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: #fff;
   overflow: hidden;
 }
 
@@ -353,11 +350,9 @@ form {
   right: 0;
   width: 40%;
   height: 100%;
-  background: #fff;
   display: grid;
   place-self: center;
   place-content: center;
-  color: #333;
   text-align: center;
   padding: 40px;
   z-index: 1;
@@ -374,6 +369,9 @@ form {
 .container.active .form-box.register {
   visibility: visible;
 }
+.container.active .form-box.login {
+  visibility: hidden;
+}
 
 .input-box {
   position: relative;
@@ -387,7 +385,6 @@ form {
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   border: 0;
-  background-color: hsl(201, 31%, 11%);
 }
 
 .input-box input::placeholder {
@@ -586,9 +583,9 @@ form {
   }
 } */
 .btn-codoc:hover svg {
-    transition: all 0.5s ease-in-out;
-    transform: rotate(360deg);
-  }
+  transition: all 0.5s ease-in-out;
+  transform: rotate(360deg);
+}
 section#tasks {
   padding-inline: 1rem;
 }
