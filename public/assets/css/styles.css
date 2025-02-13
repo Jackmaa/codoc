@@ -265,14 +265,21 @@ h1 {
   
 }
 
-.glow {
+.glow-unlike, .glow-like {
   position: absolute;
   top: 35%;
   left: 35%;
   transform: translate(-50%, -50%);
-  box-shadow: var(--box-shadow-unlike);
   width: 1px;
   height: 1px;
+}
+
+.glow-unlike {
+  box-shadow: var(--box-shadow-unlike);
+}
+
+.glow-like {
+  box-shadow: var(--box-shadow-like);
 }
 /*----------------------FORM -------------------------------*/
 input:focus:valid,
