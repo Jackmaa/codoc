@@ -1,4 +1,5 @@
-# CODOC 
+# CODOC
+
 Why Codoc ? What does it mean ?
 We chose Codoc because we were searching for a name easy to remember, and also a palyndrome.
 And the name Codoc came up, thanks to @Nmec.
@@ -13,8 +14,10 @@ CODe Original Content
 And both of the names describe very well what our goal is with the blog, that's why I included
 this little bit of story in this file.
 
-## Project by 
+## Project by
+
 [@Chris181076](https://github.com/Chris181076)
+[@SASSOU69](https://github.com/SASSOU69)
 [@Nmec2](https://github.com/Nmec2)
 [@NeferNedjer](https://github.com/NeferNedjer)
 [@Jackmaa](https://github.com/Jackmaa)
