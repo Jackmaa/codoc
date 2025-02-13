@@ -1,4 +1,4 @@
-// LIGHT MODE // DARK MODE TOGGLE
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("modeToggle");
@@ -104,15 +104,15 @@ for(const element of divLikes){
 
 
 for (const element of likeButton) { 
-  element.setAttribute("fill","white");
+  element.setAttribute("fill","#14f6eb");
   element.addEventListener("click", () => {
     let likeCount = parseInt(element.nextElementSibling.innerHTML);
-    if (element.getAttribute("fill") === "red"){
-      element.setAttribute("fill","white");
+    if (element.getAttribute("fill") === "#f809b0"){
+      element.setAttribute("fill","#14f6eb");
       likeCount--;
       element.nextElementSibling.innerHTML = likeCount;
     }else{
-      element.setAttribute("fill","red");
+      element.setAttribute("fill","#f809b0");
       likeCount++;
       element.nextElementSibling.innerHTML = likeCount;
     }

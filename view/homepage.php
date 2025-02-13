@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/assets/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="./public/assets/img/favicon.svg">
-    <title>Homepage</title>
-</head>
-<body>
-    <section>
-        <?php if (isset($_SESSION['name'])) {?>
-            <h2>Bonjour&nbsp;<?php echo $_SESSION['name']; ?></h2>
-            <a href="<?php echo $router->generate('logout'); ?>" class="btn"> logout </a>
-            <a href="<?php echo $router->generate('createpost') ?>" class="btn">Create post</a>
-        <?php } else {?>
-            <a href="<?php echo $router->generate('login'); ?>" class="btn">Login</a>
-            <a href="<?php echo $router->generate('login') ?>" class="btn">Register</a></p>
-            <?php }?>
+<?php
+$title = "Bienvenue sur Codoc";
+$meta_description = "Bienvenue sur la page d'accueil de Codoc";
+ob_start();
+?>
         <h1>Les derniers articles</h1>
         <?php foreach ($datas as $data): ?>
             <article>
@@ -34,7 +20,9 @@
 
 
         <?php endforeach; ?>
-    </section>
-    <script src="./public/assets/js/main.js"></script>
-</body>
-</html>
+        <script src="./public/assets/js/main.js"></script>
+<?php 
+$content = ob_get_contents();
+ob_end_clean();
+require_once('./view/base_html.php');
+?>
