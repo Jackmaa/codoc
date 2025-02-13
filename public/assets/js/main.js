@@ -104,14 +104,24 @@ for(const element of divLikes){
 
 
 for (const element of likeButton) { 
+
+  //element = like_button
   element.setAttribute("fill","#14f6eb");
   element.addEventListener("click", () => {
+    //element previous sibling = glow effect
+    element.previousElementSibling.classList.remove("glow-unlike");
+    element.previousElementSibling.classList.add("glow-like");
     let likeCount = parseInt(element.nextElementSibling.innerHTML);
     if (element.getAttribute("fill") === "#f809b0"){
+      element.previousElementSibling.classList.remove("glow-like");
+      element.previousElementSibling.classList.add("glow-unlike");
       element.setAttribute("fill","#14f6eb");
       likeCount--;
+      //element next sibling = like counter
       element.nextElementSibling.innerHTML = likeCount;
     }else{
+      element.previousElementSibling.classList.remove("glow-unlike");
+      element.previousElementSibling.classList.add("glow-like");
       element.setAttribute("fill","#f809b0");
       likeCount++;
       element.nextElementSibling.innerHTML = likeCount;
