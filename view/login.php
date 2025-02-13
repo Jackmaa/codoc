@@ -17,6 +17,7 @@
             <h1>Login</h1>
             <div class="input-box">
             <input type="email" id="email" name="email" required placeholder="example@codoc.com" aria-errormessage='email-error'>
+            <div class="error" id='email-error' aria-live="polite">Please enter a valid email address</div>
             </div>
             <div class="input-box">
             <input type="password" id="password" name="password" required placeholder="********" aria-errormessage='password-error'>
@@ -34,7 +35,7 @@
             </div>
             <div class="input-box">
                 <input type="email" id="email" name="email" required placeholder="example@codoc.com" aria-errormessage='email-error' aria-invalid="true">
-                <span id="email-error">Error: Enter a valid email address</span>
+                <div class="error" id='email-error' aria-live="polite">Please enter a valid email address</div>
             </div>
             <div class="input-box">
             <input type="password" id="password" name="password" required placeholder="********" aria-errormessage='password-error'>
