@@ -106,6 +106,14 @@ button#modeToggle img {
     --＠color-2: hsl(310 100% 59%);
   }
 }
+
+/*-------------------HEADER----------------------*/
+
+ul{
+  display: flex;
+  justify-content: center;
+}
+
 /* HOMEPAGE */
 
 section > h1 {
@@ -167,6 +175,8 @@ article {
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
   border-radius: 20px;
 }
+
+
 
 a.btn {
   position: relative;
@@ -246,6 +256,12 @@ h1 {
 .like_button {
   width: 30px;
   height: 30px;
+}
+
+svg {
+ 
+  backdrop-filter: blur(150%);
+  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.2);
 }
 
 /*----------------------FORM -------------------------------*/
@@ -521,7 +537,7 @@ form {
   }
 }
 /*----------------------DASHBOARD -------------------------------*/
-header {
+/* header {
   user-select: none;
   width: 100%;
   display: grid;
@@ -550,13 +566,11 @@ header {
       font-size: 1.5rem;
     }
   }
-}
-
-section#tasks {
-  padding-inline: 1rem;
-
-  & .btn-codoc:hover svg {
+} */
+.btn-codoc:hover svg {
     transition: all 0.5s ease-in-out;
     transform: rotate(360deg);
   }
+section#tasks {
+  padding-inline: 1rem;
 }
