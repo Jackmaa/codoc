@@ -479,6 +479,52 @@ form {
   box-shadow: none;
 }
 
+/*----------------------FORM-POST -------------------------------*/
+
+.div_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.post_codoc {
+  border: 1px solid #14f6eb;
+  width: 50vw;
+  text-align: center;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+}
+
+.post_codoc input {
+  height: 100%;
+  color: white;
+  background-color: #121212;
+  border: 1px solid #FFF;
+  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  border-radius: 5px;
+  caret-color: white;
+  padding-left: 10px;
+}
+
+.post_codoc textarea {
+  width: 95%;
+  height: 20vh;
+  color: white;
+  background-color: #121212;
+  border: 1px solid #FFF;
+  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  border-radius: 5px;
+  caret-color: white;
+  padding-left: 10px;
+}
+
+.post_codoc .btn {
+}
+
 @media screen and (max-width: 1050px) {
   article {
     width: 40vw;

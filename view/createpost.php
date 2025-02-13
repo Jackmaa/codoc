@@ -11,23 +11,27 @@
     <?php if (isset($error)): ?>
         <p><?php echo $error;?></p>
         <?php endif?>
-
-    <form action="/codoc/post/create" method="POST">
-        <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user']?>">
-        <div>
-            <label for="title">Titre</label>
-            <input type="text" name="title" id="title" required>
+        <div class="div_form">
+            <form action="/codoc/post/create" method="POST" class="post_codoc">
+                <input type="hidden" name="id_user" value="<?php echo $_SESSION['id_user']?>">
+                <div>
+                    <label for="title">Titre</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div>
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content" required></textarea>
+                </div>
+                <div>
+                    <label for="description">Description</label>
+                    <input type="text" name="description" id="description" required>
+                </div>
+                <div>
+                    <a href="<?php echo $router->generate('home')?>">Retour</a>
+                    <button type="submit" name="submit" value="codoc" class="btn">Codoc</button>
+                </div>
+            </form>
         </div>
-        <div>
-            <label for="content">Content</label>
-            <textarea name="content" id="content" required></textarea>
-        </div>
-        <div>
-            <label for="description">Description</label>
-            <input type="text" name="description" id="description" required>
-        </div>
-        <button type="submit" name="submit" value="codoc" class="btn">codoc</button>
-    </form>
-    <a href="<?php echo $router->generate('home')?>">Retour</a>
+    
 </body>
 </html>
