@@ -104,7 +104,6 @@ body.light-mode {
 }
 /*-------------------HEADER----------------------*/
 .hero {
-  position: fixed;
   z-index: 500;
   display: flex;
   justify-content: center;
@@ -145,6 +144,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
 
 li {
   margin: 1rem;
@@ -154,13 +154,12 @@ a {
   color: #14f6eb;
   font-size: 1.5rem;
 }
-
 a:hover {
-  color: #fff;
+  color: hsl(310, 100%, 59%);
 }
 
 .icons {
-  width: 2rem;
+  width: 1.5rem;
 }
 
 /*----------------------- HOMEPAGE-------------------- */
@@ -224,6 +223,23 @@ article {
           backdrop-filter: blur(120%);
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
   border-radius: 20px;
+}
+article.homepage-article:hover {
+  border: 1px solid var(--clr-primary-500);
+  margin-block: 1rem;
+  scale: 102%;
+}
+article .clamptext {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ariane {
+  text-align: center;
+  margin-block: 1.5rem;
 }
 
 a.btn {

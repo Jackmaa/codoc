@@ -28,11 +28,13 @@
                 <ul>
                     <li><a href="/codoc/"><img class="icons" src="./public/assets/img/maison.svg" alt=""> Acceuil</a></li>
                     <?php if($_SESSION):?>
-                    <li><a href="<?php echo $router->generate('logout'); ?>" >logout</a></li>
-                    <li><a href="<?php echo $router->generate('createpost') ?>" >Create codoc</a></li>
+                    <li><a href="<?php echo $router->generate('logout'); ?>" ><img class="icons" src="./public/assets/img/sortir.svg" alt=""> logout</a></li>
+                    <li><a href="<?php echo $router->generate('createpost') ?>" ><img class="icons" src="./public/assets/img/editer.svg" alt=""> Create codoc</a></li>
+                    <li><a href=""><img class="icons" src="./public/assets/img/reglages.svg" alt=""> Settings</a> </li>
                     <?php else : ?>
                     <li><a href="<?php echo $router->generate('login'); ?>"><img class="icons" src="./public/assets/img/utilisateur.svg" alt=""> login</a></li>
                     <li><a href="<?php echo $router->generate('login') ?>"><img class="icons" src="./public/assets/img/ajout-dutilisateur.svg" alt=""> Register</a></li>
+                    <li><a href=""><img class="icons" src="./public/assets/img/reglages.svg" alt=""> Settings</a> </li>
                     <?php endif; ?>
                 </ul>
             </nav>

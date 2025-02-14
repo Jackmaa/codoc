@@ -20,7 +20,7 @@
             <div class="error" id='email-error' aria-live="polite">Please enter a valid email address</div>
             </div>
             <div class="input-box">
-            <input type="password" id="password" required placeholder="*******" aria-errormessage='password-error'>
+            <input type="password" name="password" id="password" required placeholder="*******" aria-errormessage='password-error'>
             <div class="error" id='password-error' aria-live="polite">Please enter your password</div>
             </div>
             <button type="submit" class="formbtn">Login</button>
