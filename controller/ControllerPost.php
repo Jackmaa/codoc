@@ -11,7 +11,7 @@ class ControllerPost {
     }
 
     public function read($id) {
-
+        $stylesheet = "../public/assets/css/styles.css";
         global $router;
         $model = new ModelPost();
         $data  = $model->read($id);
