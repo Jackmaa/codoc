@@ -1,15 +1,13 @@
 <?php
-$title = "Bienvenue sur Codoc";
-$meta_description = "Bienvenue sur la page d'accueil de Codoc";
-ob_start();
+    $title            = "Bienvenue sur Codoc";
+    $meta_description = "Bienvenue sur la page d'accueil de Codoc";
+    ob_start();
 ?>
         <h1>Les derniers articles</h1>
         <?php foreach ($datas as $data): ?>
             <article class="homepage-article">
-
-                <?= getcwd();?>
                 <h2><?php echo $data->post->getTitle(); ?></h2>
-                <p><?php echo $data->username; ?> - <?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
+                <p><?php echo $data->username; ?> -<?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
                 <p><?php echo $data->post->getDescription(); ?></p>
                 <p class="clamptext"><?php echo $data->post->getContent(); ?></p>
                 <div class="article_footer">
@@ -24,8 +22,8 @@ ob_start();
 
         <?php endforeach; ?>
         <script src="./public/assets/js/main.js"></script>
-<?php 
-$content = ob_get_contents();
-ob_end_clean();
-require_once('./view/base_html.php');
+<?php
+    $content = ob_get_contents();
+    ob_end_clean();
+require_once './view/base_html.php';
 ?>
