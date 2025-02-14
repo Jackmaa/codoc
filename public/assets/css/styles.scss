@@ -1,5 +1,6 @@
 /*----------------------RESET -------------------------------*/
 @use "_colors_" as *; //Color vaiables from _colors_.scss
+
 *,
 *::before,
 *::after {
@@ -67,6 +68,7 @@ h6 {
     @if ($color == "primary") {
       --box-shadow-#{$color}: 0px 0px 30px 11px var(--clr-primary-500);
     }
+
     //Here we create the box-shadow pour la couleur secondary (gloweffect pour le like btn)
     @if ($color == "secondary") {
       --box-shadow-#{$color}: 0px 0px 30px 12px var(--clr-secondary-500);
@@ -83,15 +85,20 @@ h6 {
 /* Dark Mode */
 body.dark-mode {
   color-scheme: dark;
-  background-color: #121212;
-  color: #ffffff;
+  background-color: #333;
+  color: #e5e5e5;
 }
 
 /* Light Mode */
 body.light-mode {
   color-scheme: light;
-  background-color: #ffffff;
+  background-color: hsl(0, 0%, 90%);
   color: #000000;
+
+  article {
+    box-shadow: 0px 0px 2px 2px #333;
+    border: none;
+  }
 }
 
 @property --＠color-1 {
@@ -99,11 +106,13 @@ body.light-mode {
   inherits: false;
   initial-value: hsl(318, 94%, 50%);
 }
+
 @property --＠color-2 {
   syntax: "<color>";
   inherits: false;
   initial-value: hsl(177, 93%, 52%);
 }
+
 /* keyframes that change the color variable */
 @keyframes gradient-change {
   to {
@@ -128,10 +137,10 @@ body.light-mode {
   border-bottom: 1px solid #14f6eb;
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
   color: #14f6eb;
-}
 
-.codocicon {
-  height: 6rem;
+  .codocicon {
+    height: 6rem;
+  }
 }
 
 #sidebar {
@@ -146,39 +155,39 @@ body.light-mode {
   background-color: #333;
   border-right: 1px solid #14f6eb;
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+
+  .header-logo {
+    margin: 2rem 0 2rem 0;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    li {
+      margin: 1rem;
+
+      a {
+        color: #14f6eb;
+        font-size: 1.5rem;
+        &:hover {
+          color: #fff;
+        }
+        .icons {
+          width: 2rem;
+        }
+      }
+    }
+  }
 }
 
-.header-logo {
-  margin: 2rem 0 2rem 0;
-}
-
-ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-li {
-  margin: 1rem;
-}
-
-a {
-  color: #14f6eb;
-  font-size: 1.5rem;
-}
-
-a:hover {
-  color: #fff;
-}
-
-.icons {
-  width: 2rem;
-}
 /*----------------------- HOMEPAGE-------------------- */
 
 section > h1 {
   justify-self: center;
 }
+
 .error404 {
   display: flex;
   height: 100vh;
@@ -232,7 +241,7 @@ article {
   border: 1px solid #14f6eb;
   background-color: transparent;
   backdrop-filter: blur(120%);
-  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  box-shadow: var(--box-shadow-secondary);
   border-radius: 20px;
 }
 
@@ -246,6 +255,7 @@ a.btn {
   border-radius: 0.5em;
   margin-top: 1rem;
 }
+
 a.btn::before {
   background-color: #f809b0;
   border-radius: 0.5em;
@@ -258,6 +268,7 @@ a.btn::before {
   z-index: -1;
   transition: all 0.3s ease-in-out;
 }
+
 a.btn::after {
   background-color: #14f6eb;
   border-radius: 0.5em;
@@ -276,6 +287,7 @@ a.btn:hover::before {
   right: -0.1rem;
   top: -0.125rem;
 }
+
 a.btn:hover::after {
   inset: 2px;
   left: -0.1rem;
@@ -338,6 +350,7 @@ h1 {
 .glow-like {
   box-shadow: var(--box-shadow-primary);
 }
+
 /*----------------------FORM -------------------------------*/
 input:focus:valid,
 input:valid:not(:placeholder-shown) {
@@ -355,6 +368,7 @@ input:focus:invalid:not(:placeholder-shown) {
 .hint {
   color: var(--clr-warning-500);
 }
+
 .error {
   color: var(--clr-error-500);
 }
@@ -377,6 +391,7 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
   25% {
     translate: -5px;
   }
+
   75% {
     translate: 5px;
   }
@@ -424,9 +439,11 @@ form {
 .form-box.register {
   visibility: hidden;
 }
+
 .container.active .form-box.register {
   visibility: visible;
 }
+
 .container.active .form-box.login {
   visibility: hidden;
 }
@@ -509,6 +526,7 @@ form {
   left: 0;
   transition-delay: 1.2s;
 }
+
 .container.active .toggle-panel.toggle-left {
   left: -50%;
   transition-delay: 0.6s;
@@ -518,6 +536,7 @@ form {
   right: -50%;
   transition-delay: 0.6s;
 }
+
 .container.active .toggle-panel.toggle-right {
   right: 0;
   transition-delay: 1.2s;
@@ -578,9 +597,6 @@ form {
   padding-left: 10px;
 }
 
-.post_codoc .btn {
-}
-
 @media screen and (max-width: 1050px) {
   article {
     width: 40vw;
@@ -630,9 +646,11 @@ form {
     width: 100%;
     height: 30%;
   }
+
   .toggle-panel.toggle-left {
     top: 0;
   }
+
   .toggle-panel.toggle-right {
     right: 0;
     bottom: -30%;
@@ -655,6 +673,7 @@ form {
     font-size: 30px;
   }
 }
+
 /*----------------------DASHBOARD -------------------------------*/
 /* header {
   user-select: none;
@@ -690,6 +709,7 @@ form {
   transition: all 0.5s ease-in-out;
   transform: rotate(360deg);
 }
+
 section#tasks {
   padding-inline: 1rem;
 }
