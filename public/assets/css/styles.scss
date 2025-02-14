@@ -190,51 +190,6 @@ section > h1 {
   justify-self: center;
 }
 
-.error404 {
-  display: flex;
-  height: 100vh;
-  background-color: #fff;
-}
-
-#errorParagraphe {
-  color: hsl(310 100% 59%);
-}
-
-.error404__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 1rem;
-  font-size: 1.5rem;
-  color: #333;
-}
-
-.error404__content > p {
-  line-height: 2.5rem;
-}
-
-.error404__content > div > input {
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  margin-top: 3rem;
-  border-radius: 10px;
-}
-
-.error404__content > div > button {
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  font-size: 1.5rem;
-  background-color: hsl(310 100% 59%);
-  color: hsl(177, 93%, 52%);
-}
-
-.error404__content > div > button:hover {
-  background-color: hsl(177, 93%, 52%);
-  color: hsl(310 100% 59%);
-}
-
 article {
   justify-self: center;
   margin: 1rem;
@@ -322,18 +277,87 @@ h1 {
   color: transparent;
 }
 
-/*----------------------FORM -------------------------------*/
-input:focus:valid,
-input:valid:not(:placeholder-shown) {
-  outline-color: var(--clr-success-500);
+/*---------------------- FORM-LOGIN-REGISTER -------------------------------*/
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  h1 {
+    font-size: 36px;
+    margin: -10px 0;
+  }
+
+  p {
+    font-size: 14.5px;
+    margin: 15px 0;
+  }
+
+  form {
+    width: 100%;
+  }
+  .form-box {
+    position: absolute;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    display: grid;
+    place-self: center;
+    place-content: center;
+    text-align: center;
+    padding: 40px;
+    z-index: 1;
+    transition: 0.6s ease-in-out 1.2s, visibility 0s 1s;
+
+    &.register {
+      visibility: hidden;
+    }
+  }
 }
 
-input:invalid:not(:placeholder-shown) {
-  outline-color: var(--clr-error-500);
+.container.active .form-box {
+  right: 50%;
+
+  &.register {
+    visibility: visible;
+  }
+
+  &.login {
+    visibility: hidden;
+  }
 }
 
-input:focus:invalid:not(:placeholder-shown) {
-  outline-color: var(--clr-warning-500);
+.input-box {
+  position: relative;
+  margin: 2rem 0;
+
+  input {
+    outline: 3px solid hsl(203, 30%, 26%);
+    font-size: inherit;
+    outline: 3px solid hsl(203, 30%, 26%);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 0;
+
+    &::placeholder {
+      color: #888;
+      font-weight: 400;
+    }
+
+    &:focus:valid,
+    &:valid:not(:placeholder-shown) {
+      outline-color: var(--clr-success-500);
+    }
+
+    &:invalid:not(:placeholder-shown) {
+      outline-color: var(--clr-error-500);
+    }
+
+    &:focus:invalid:not(:placeholder-shown) {
+      outline-color: var(--clr-warning-500);
+    }
+  }
 }
 
 .hint {
@@ -368,76 +392,6 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
   }
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.container h1 {
-  font-size: 36px;
-  margin: -10px 0;
-}
-
-.container p {
-  font-size: 14.5px;
-  margin: 15px 0;
-}
-
-form {
-  width: 100%;
-}
-
-.form-box {
-  position: absolute;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  display: grid;
-  place-self: center;
-  place-content: center;
-  text-align: center;
-  padding: 40px;
-  z-index: 1;
-  transition: 0.6s ease-in-out 1.2s, visibility 0s 1s;
-}
-
-.container.active .form-box {
-  right: 50%;
-}
-
-.form-box.register {
-  visibility: hidden;
-}
-
-.container.active .form-box.register {
-  visibility: visible;
-}
-
-.container.active .form-box.login {
-  visibility: hidden;
-}
-
-.input-box {
-  position: relative;
-  margin: 30px 0;
-}
-
-.input-box input {
-  outline: 3px solid hsl(203, 30%, 26%);
-  font-size: inherit;
-  outline: 3px solid hsl(203, 30%, 26%);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  border: 0;
-}
-
-.input-box input::placeholder {
-  color: #888;
-  font-weight: 400;
-}
-
 .formbtn {
   width: 100%;
   height: 48px;
@@ -455,29 +409,30 @@ form {
   position: absolute;
   width: 100%;
   height: 100%;
-}
 
-.toggle-box::before {
-  content: "";
-  position: absolute;
-  left: -250%;
-  width: 300%;
-  height: 100%;
-  background: linear-gradient(
-    /* 
-      in oklch produces more vibrant gradient results 
-      */ to right
-      in oklch,
-    var(--＠color-1),
-    var(--＠color-2) /* use the variables in a gradient (or wherever!) */
-  );
-  border-radius: 150px;
-  z-index: 2;
-  transition: 1.8s ease-in-out;
+  &::before {
+    content: "";
+    position: absolute;
+    left: -250%;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(
+      /* 
+        in oklch produces more vibrant gradient results 
+        */ to
+        right in oklch,
+      var(--＠color-1),
+      var(--＠color-2) /* use the variables in a gradient (or wherever!) */
+    );
+    border-radius: 150px;
+    z-index: 2;
+    transition: 1.8s ease-in-out;
+  }
 }
-
-.container.active .toggle-box::before {
-  left: 50%;
+.container.active {
+  .toggle-box::before {
+    left: 50%;
+  }
 }
 
 .toggle-panel {
@@ -491,21 +446,18 @@ form {
   align-items: center;
   z-index: 2;
   transition: 0.6s ease-in-out;
+
+  &.toggle-left {
+    left: 0;
+    transition-delay: 1.2s;
+  }
 }
 
-.toggle-panel.toggle-left {
-  left: 0;
-  transition-delay: 1.2s;
-}
-
-.container.active .toggle-panel.toggle-left {
-  left: -50%;
-  transition-delay: 0.6s;
-}
-
-.toggle-panel.toggle-right {
-  right: -50%;
-  transition-delay: 0.6s;
+.container.active .toggle-panel {
+  &.toggle-left {
+    left: -50%;
+    transition-delay: 0.6s;
+  }
 }
 
 .container.active .toggle-panel.toggle-right {
@@ -513,16 +465,22 @@ form {
   transition-delay: 1.2s;
 }
 
-.toggle-panel p {
-  margin-bottom: 20px;
-}
+.toggle-panel {
+  &.toggle-right {
+    right: -50%;
+    transition-delay: 0.6s;
+  }
+  p {
+    margin-bottom: 20px;
+  }
 
-.toggle-panel .formbtn {
-  width: 160px;
-  height: 46px;
-  background: transparent;
-  border: 2px solid #fff;
-  box-shadow: none;
+  .formbtn {
+    width: 160px;
+    height: 46px;
+    background: transparent;
+    border: 2px solid #fff;
+    box-shadow: none;
+  }
 }
 
 /*----------------------FORM-POST -------------------------------*/
@@ -543,29 +501,29 @@ form {
   flex-direction: column;
   justify-content: center;
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
-}
 
-.post_codoc input {
-  height: 100%;
-  color: white;
-  background-color: #121212;
-  border: 1px solid #fff;
-  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
-  border-radius: 5px;
-  caret-color: white;
-  padding-left: 10px;
-}
+  input {
+    height: 100%;
+    color: white;
+    background-color: #121212;
+    border: 1px solid #fff;
+    box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+    border-radius: 5px;
+    caret-color: white;
+    padding-left: 10px;
+  }
 
-.post_codoc textarea {
-  width: 95%;
-  height: 20vh;
-  color: white;
-  background-color: #121212;
-  border: 1px solid #fff;
-  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
-  border-radius: 5px;
-  caret-color: white;
-  padding-left: 10px;
+  textarea {
+    width: 95%;
+    height: 20vh;
+    color: white;
+    background-color: #121212;
+    border: 1px solid #fff;
+    box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+    border-radius: 5px;
+    caret-color: white;
+    padding-left: 10px;
+  }
 }
 
 @media screen and (max-width: 1050px) {
@@ -675,12 +633,54 @@ form {
       font-size: 1.5rem;
     }
   }
-} */
-.btn-codoc:hover svg {
-  transition: all 0.5s ease-in-out;
-  transform: rotate(360deg);
-}
-
+} 
 section#tasks {
   padding-inline: 1rem;
+}
+*/
+
+/*-------------------------------ERROR-404 ---------------*/
+.error404 {
+  display: flex;
+  height: 100vh;
+  background-color: #fff;
+}
+
+#errorParagraphe {
+  color: hsl(310 100% 59%);
+}
+
+.error404__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.error404__content > p {
+  line-height: 2.5rem;
+}
+
+.error404__content > div > input {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-top: 3rem;
+  border-radius: 10px;
+}
+
+.error404__content > div > button {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background-color: hsl(310 100% 59%);
+  color: hsl(177, 93%, 52%);
+}
+
+.error404__content > div > button:hover {
+  background-color: hsl(177, 93%, 52%);
+  color: hsl(310 100% 59%);
 }
