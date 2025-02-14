@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const modeToggle = document.getElementById("modeToggle");
   const modeIcon = document.getElementById("modeIcon");
@@ -93,41 +91,40 @@ document.addEventListener("DOMContentLoaded", () => {
 const divLikes = document.querySelectorAll(".likes");
 const likeButton = document.querySelectorAll(".like_button");
 
+function updateGlowEffect(element) {
+  let glowEffect = element.previousElementSibling;
+  if (glowEffect.classList.contains("glow-unlike")) {
+    glowEffect.classList.toggle("glow-unlike");
+    glowEffect.classList.toggle("glow-like");
+  } else {
+    glowEffect.classList.toggle("glow-like");
+    glowEffect.classList.toggle("glow-unlike");
+  }
+}
 
-
-for(const element of divLikes){
+for (const element of divLikes) {
   let likeCount = 0;
   var likeCounters = document.createElement("span");
   likeCounters.innerHTML = likeCount;
   element.appendChild(likeCounters);
 }
 
-
-for (const element of likeButton) { 
-
+for (const element of likeButton) {
   //element = like_button
-  element.setAttribute("fill","#14f6eb");
+  element.setAttribute("fill", "#14f6eb");
   element.addEventListener("click", () => {
-    //element previous sibling = glow effect
-    element.previousElementSibling.classList.remove("glow-unlike");
-    element.previousElementSibling.classList.add("glow-like");
     let likeCount = parseInt(element.nextElementSibling.innerHTML);
-    if (element.getAttribute("fill") === "#f809b0"){
-      element.previousElementSibling.classList.remove("glow-like");
-      element.previousElementSibling.classList.add("glow-unlike");
-      element.setAttribute("fill","#14f6eb");
+    if (element.getAttribute("fill") === "#f809b0") {
+      updateGlowEffect(element);
+      element.setAttribute("fill", "#14f6eb");
       likeCount--;
       //element next sibling = like counter
       element.nextElementSibling.innerHTML = likeCount;
-    }else{
-      element.previousElementSibling.classList.remove("glow-unlike");
-      element.previousElementSibling.classList.add("glow-like");
-      element.setAttribute("fill","#f809b0");
+    } else {
+      updateGlowEffect(element);
+      element.setAttribute("fill", "#f809b0");
       likeCount++;
       element.nextElementSibling.innerHTML = likeCount;
     }
-    
   });
-};
-
-
+}
