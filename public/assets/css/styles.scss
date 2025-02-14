@@ -1,4 +1,5 @@
 /*----------------------RESET -------------------------------*/
+@use "_colors_" as *; //Color vaiables from _colors_.scss
 *,
 *::before,
 *::after {
@@ -9,13 +10,6 @@
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: smooth;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #ffffff;
   }
 }
 
@@ -60,13 +54,37 @@ h6 {
 }
 
 :root {
-  --pink-primary: hsl(318, 94%, 50%);
-  --blue-primary: hsl(177, 93%, 52%);
-  --clr-success: hsl(143, 100%, 26%);
-  --clr-warning: hsl(43, 100%, 66%);
-  --clr-error: hsl(348, 55%, 49%);
-  --box-shadow-unlike: 0px 0px 30px 11px var(--blue-primary);
-  --box-shadow-like: 0px 0px 30px 12px var(--pink-primary);
+  //Loop for each color (primary, secondary, ...)
+  @each $color, $shades in $colors {
+    //Loop for each shade (100, 200, ...) (shade being the opacity of the color)
+
+    @each $shade, $value in $shades {
+      //We get the variable --clr-primary-100: hsla(318, 94%, 50%, 0.2);
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+
+    //Here we create the box-shadow pour la couleur primary (gloweffect pour le like btn)
+    @if ($color == "primary") {
+      --box-shadow-#{$color}: 0px 0px 30px 11px var(--clr-primary-500);
+    }
+    //Here we create the box-shadow pour la couleur secondary (gloweffect pour le like btn)
+    @if ($color == "secondary") {
+      --box-shadow-#{$color}: 0px 0px 30px 12px var(--clr-secondary-500);
+    }
+  }
+}
+
+/* ----------------------- THEMES -----------------------*/
+
+// Here we can nest our props based on the light and dark theme
+// Since we want to use many other we'll need to add the logic
+//in the javascript file
+
+/* Dark Mode */
+body.dark-mode {
+  color-scheme: dark;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 /* Light Mode */
@@ -76,31 +94,16 @@ body.light-mode {
   color: #000000;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  color-scheme: dark;
-  background-color: #121212;
-  color: #ffffff;
-}
-
-button#modeToggle img {
-  background: none;
-}
-
-/*----------------------GLOBAL -------------------------------*/
-
 @property --＠color-1 {
   syntax: "<color>";
   inherits: false;
   initial-value: hsl(318, 94%, 50%);
 }
-
 @property --＠color-2 {
   syntax: "<color>";
   inherits: false;
   initial-value: hsl(177, 93%, 52%);
 }
-
 /* keyframes that change the color variable */
 @keyframes gradient-change {
   to {
@@ -123,11 +126,6 @@ button#modeToggle img {
 .icons {
   width: 30px;
   height: 30px;
-}
-
-ul {
-  /* display: flex;
-  justify-content: center; */
 }
 
 li {
@@ -293,31 +291,31 @@ h1 {
 }
 
 .glow-unlike {
-  box-shadow: var(--box-shadow-unlike);
+  box-shadow: var(--box-shadow-secondary);
 }
 
 .glow-like {
-  box-shadow: var(--box-shadow-like);
+  box-shadow: var(--box-shadow-primary);
 }
 /*----------------------FORM -------------------------------*/
 input:focus:valid,
 input:valid:not(:placeholder-shown) {
-  outline-color: var(--clr-success);
+  outline-color: var(--clr-success-500);
 }
 
 input:invalid:not(:placeholder-shown) {
-  outline-color: var(--clr-error);
+  outline-color: var(--clr-error-500);
 }
 
 input:focus:invalid:not(:placeholder-shown) {
-  outline-color: var(--clr-warning);
+  outline-color: var(--clr-warning-500);
 }
 
 .hint {
-  color: var(--clr-warning);
+  color: var(--clr-warning-500);
 }
 .error {
-  color: var(--clr-error);
+  color: var(--clr-error-500);
 }
 
 .hint,

@@ -12,12 +12,6 @@
     scroll-behavior: smooth;
   }
 }
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: #ffffff;
-  }
-}
 html {
   font-family: system-ui;
 }
@@ -59,13 +53,29 @@ h6 {
 }
 
 :root {
-  --pink-primary: hsl(318, 94%, 50%);
-  --blue-primary: hsl(177, 93%, 52%);
-  --clr-success: hsl(143, 100%, 26%);
-  --clr-warning: hsl(43, 100%, 66%);
-  --clr-error: hsl(348, 55%, 49%);
-  --box-shadow-unlike: 0px 0px 30px 11px var(--blue-primary);
-  --box-shadow-like: 0px 0px 30px 12px var(--pink-primary);
+  --clr-primary-100: hsla(318, 94%, 50%, 0.2);
+  --clr-primary-200: hsla(318, 94%, 50%, 0.4);
+  --clr-primary-300: hsla(318, 94%, 50%, 0.6);
+  --clr-primary-400: hsla(318, 94%, 50%, 0.8);
+  --clr-primary-500: hsl(318, 94%, 50%);
+  --box-shadow-primary: 0px 0px 30px 11px var(--clr-primary-500);
+  --clr-secondary-100: hsla(177, 93%, 52%, 0.2);
+  --clr-secondary-200: hsla(177, 93%, 52%, 0.4);
+  --clr-secondary-300: hsla(177, 93%, 52%, 0.6);
+  --clr-secondary-400: hsla(177, 93%, 52%, 0.8);
+  --clr-secondary-500: hsl(177, 93%, 52%);
+  --box-shadow-secondary: 0px 0px 30px 12px var(--clr-secondary-500);
+  --clr-success-500: hsl(143, 100%, 26%);
+  --clr-warning-500: hsl(43, 100%, 66%);
+  --clr-error-500: hsl(348, 55%, 49%);
+}
+
+/* ----------------------- THEMES -----------------------*/
+/* Dark Mode */
+body.dark-mode {
+  color-scheme: dark;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 /* Light Mode */
@@ -75,18 +85,6 @@ body.light-mode {
   color: #000000;
 }
 
-/* Dark Mode */
-body.dark-mode {
-  color-scheme: dark;
-  background-color: #121212;
-  color: #ffffff;
-}
-
-button#modeToggle img {
-  background: none;
-}
-
-/*----------------------GLOBAL -------------------------------*/
 @property --＠color-1 {
   syntax: "<color>";
   inherits: false;
@@ -117,11 +115,6 @@ button#modeToggle img {
 .icons {
   width: 30px;
   height: 30px;
-}
-
-ul {
-  /* display: flex;
-  justify-content: center; */
 }
 
 li {
@@ -282,44 +275,44 @@ h1 {
 }
 
 .glow-unlike {
-  box-shadow: var(--box-shadow-unlike);
+  box-shadow: var(--box-shadow-secondary);
 }
 
 .glow-like {
-  box-shadow: var(--box-shadow-like);
+  box-shadow: var(--box-shadow-primary);
 }
 
 /*----------------------FORM -------------------------------*/
 input:valid:not(:-moz-placeholder-shown) {
-  outline-color: var(--clr-success);
+  outline-color: var(--clr-success-500);
 }
 input:focus:valid,
 input:valid:not(:placeholder-shown) {
-  outline-color: var(--clr-success);
+  outline-color: var(--clr-success-500);
 }
 
 input:invalid:not(:-moz-placeholder-shown) {
-  outline-color: var(--clr-error);
+  outline-color: var(--clr-error-500);
 }
 
 input:invalid:not(:placeholder-shown) {
-  outline-color: var(--clr-error);
+  outline-color: var(--clr-error-500);
 }
 
 input:focus:invalid:not(:-moz-placeholder-shown) {
-  outline-color: var(--clr-warning);
+  outline-color: var(--clr-warning-500);
 }
 
 input:focus:invalid:not(:placeholder-shown) {
-  outline-color: var(--clr-warning);
+  outline-color: var(--clr-warning-500);
 }
 
 .hint {
-  color: var(--clr-warning);
+  color: var(--clr-warning-500);
 }
 
 .error {
-  color: var(--clr-error);
+  color: var(--clr-error-500);
 }
 
 .hint,
