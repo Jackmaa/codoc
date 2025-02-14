@@ -30,44 +30,45 @@ document.addEventListener("DOMContentLoaded", () => {
     applyMode(isDarkMode ? "light-mode" : "dark-mode");
   });
 
-  // matrixMode.addEventListener("click", () => {
-  //   const canvas = document.createElement("canvas");
-  //   canvas.setAttribute("id", "matrixCanvas");
-  //   const ctx = canvas.getContext("2d");
-  //   canvas.width = window.innerWidth;
-  //   canvas.height = window.innerHeight;
+  matrixMode.addEventListener("click", () => {
+    const canvas = document.createElement("canvas");
+    canvas.setAttribute("id", "matrixCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-  //   const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZあいうえおカキクケコ";
-  //   const fontSize = 16;
-  //   const columns = canvas.width / fontSize;
-  //   const drops = Array(Math.floor(columns)).fill(1);
-  //   body.prepend(canvas);
+    const letters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZあいうえおカキクケコ";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+    body.prepend(canvas);
 
-  //   function drawMatrixEffect() {
-  //     ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-  //     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    function drawMatrixEffect() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  //     ctx.fillStyle = "#00FF00";
-  //     ctx.font = `${fontSize}px monospace`;
+      ctx.fillStyle = "#00FF00";
+      ctx.font = `${fontSize}px monospace`;
 
-  //     for (let i = 0; i < drops.length; i++) {
-  //       const text = letters[Math.floor(Math.random() * letters.length)];
-  //       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-  //       if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-  //         drops[i] = 0;
-  //       }
-  //       drops[i]++;
-  //     }
-  //   }
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
 
-  //   setInterval(drawMatrixEffect, 50);
+    setInterval(drawMatrixEffect, 50);
 
-  //   window.addEventListener("resize", () => {
-  //     canvas.width = window.innerWidth;
-  //     canvas.height = window.innerHeight;
-  //   });
-  // });
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  });
+
 
   // Update button icon and accessibility label
   function updateButton(mode) {
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "aria-label",
       isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
     );
-    modeLogo.setAttribute("fill", isDarkMode ? "white" : "black");
+  modeLogo.setAttribute("fill", isDarkMode ? "white" : "black");
   }
 });
 

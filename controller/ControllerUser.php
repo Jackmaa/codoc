@@ -2,7 +2,7 @@
 class ControllerUser {
     public function login() {
         global $router;
-        $title = 'Login | codoc'; // Set the title of the homepage
+        $title = 'Login | codoc';        // Set the title of the homepage
         $model = new ModelUser();
         $model->isLoggedIn(); // Check if user is already logged in
 
@@ -28,8 +28,6 @@ class ControllerUser {
                 $error = 'Email and password are required.';
             }
         }
-
-        // Include the homepage view
         require_once './view/login.php';
     }
 
