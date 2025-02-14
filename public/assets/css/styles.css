@@ -149,15 +149,17 @@ body.light-mode article {
 #sidebar ul li {
   margin: 1rem;
 }
-#sidebar ul li a {
+#sidebar ul li .icons {
+  width: 1.5rem;
+}
+
+/*-----------------------GLOBAL------------------------*/
+a {
   color: #14f6eb;
   font-size: 1.5rem;
 }
-#sidebar ul li a:hover {
+a:hover {
   color: var(--clr-primary-500);
-}
-#sidebar ul li a .icons {
-  width: 1.5rem;
 }
 
 /*----------------------- HOMEPAGE-------------------- */
