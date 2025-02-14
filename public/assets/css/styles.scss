@@ -167,9 +167,7 @@ body.light-mode {
       margin: 1rem;
 
       
-        .icons {
-          width: 1.5rem;
-        }
+       
       }
     }
   }
@@ -181,6 +179,10 @@ a {
   font-size: 1.5rem;
   &:hover {
     color: var(--clr-primary-500);
+  }
+
+  .icons {
+    width: 1.5rem;
   }
 }
 
