@@ -153,19 +153,11 @@ body.light-mode article {
   color: #14f6eb;
   font-size: 1.5rem;
 }
-
-a:hover {
-  color: hsl(310, 100%, 59%);
-}
-
-.icons {
-  width: 1.5rem;
-  
 #sidebar ul li a:hover {
-  color: #fff;
+  color: var(--clr-primary-500);
 }
 #sidebar ul li a .icons {
-  width: 2rem;
+  width: 1.5rem;
 }
 
 /*----------------------- HOMEPAGE-------------------- */
@@ -227,7 +219,7 @@ article {
   background-color: transparent;
   -webkit-backdrop-filter: blur(120%);
           backdrop-filter: blur(120%);
-  box-shadow: var(--box-shadow-secondary);
+  box-shadow: 0px 8px 21px 8px var(--clr-secondary-100);
   border-radius: 20px;
 }
 article.homepage-article:hover {
@@ -242,59 +234,39 @@ article .clamptext {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+article .article_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+article .like_button {
+  width: 30px;
+  height: 30px;
+}
+article .likes {
+  position: relative;
+  cursor: pointer;
+}
+article .glow-unlike,
+article .glow-like {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 1px;
+}
+article .glow-unlike {
+  box-shadow: var(--box-shadow-secondary);
+}
+article .glow-like {
+  box-shadow: var(--box-shadow-primary);
+}
 
 .ariane {
   text-align: center;
   margin-block: 1.5rem;
-}
-
-a.btn {
-  position: relative;
-  display: inline-block;
-  color: #000;
-  background-color: white;
-  font-weight: 800;
-  padding: 0.2em 0.5em;
-  border-radius: 0.5em;
-  margin-top: 1rem;
-}
-
-a.btn::before {
-  background-color: #f809b0;
-  border-radius: 0.5em;
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: -0.1rem;
-  left: -0.1rem;
-  z-index: -1;
-  transition: all 0.3s ease-in-out;
-}
-
-a.btn::after {
-  background-color: #14f6eb;
-  border-radius: 0.5em;
-  content: "";
-  top: -0.1rem;
-  right: -0.1rem;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -1;
-  transition: all 0.2s ease-in-out;
-}
-
-a.btn:hover::before {
-  inset: 2px;
-  right: -0.1rem;
-  top: -0.125rem;
-}
-
-a.btn:hover::after {
-  inset: 2px;
-  left: -0.1rem;
-  bottom: -0.1rem;
 }
 
 h1 {
@@ -308,41 +280,6 @@ h1 {
   /* modern browser version */
   background-clip: text;
   color: transparent;
-}
-
-.article_footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.like_button {
-  width: 30px;
-  height: 30px;
-}
-
-.likes {
-  position: relative;
-  cursor: pointer;
-}
-
-.glow-unlike,
-.glow-like {
-  position: absolute;
-  top: 35%;
-  left: 35%;
-  transform: translate(-50%, -50%);
-  width: 1px;
-  height: 1px;
-}
-
-.glow-unlike {
-  box-shadow: var(--box-shadow-secondary);
-}
-
-.glow-like {
-  box-shadow: var(--box-shadow-primary);
 }
 
 /*----------------------FORM -------------------------------*/
