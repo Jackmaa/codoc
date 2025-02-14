@@ -6,11 +6,10 @@
     <title><?= $title ?> | Codoc</title>
     <link rel="stylesheet" href="<?php if(isset($stylesheet)){echo $stylesheet;}else{echo "./public/assets/css/styles.css";} ?>">
     <link rel="icon" type="image/x-icon" href="./public/assets/img/favicon.svg">
-    <meta name="description" content="<?php $meta_description ?>">
+    <meta name="description" content="<?php $meta_description?>">
 </head>
 <body>
     <header>
-        
         <div id="menu">
             <div class="hero">
                 <svg width="259" height="75" viewBox="0 0 259 75" fill="none" xmlns="http://www.w3.org/2000/svg">

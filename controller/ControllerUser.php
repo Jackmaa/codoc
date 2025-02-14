@@ -5,31 +5,27 @@ class ControllerUser {
         $title = 'Login | codoc';        // Set the title of the homepage
         $model = new ModelUser();
         $model->isLoggedIn(); // Check if user is already logged in
-                              // Check if the form was submitted
+
+        // Check if the form was submitted
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Check if the email and password are set
             if (! empty($_POST['email']) && ! empty($_POST['password'])) {
                 // Fetch the user by email
                 $user = $model->getUserByEmail($_POST['email']);
                 // Check if the user exists and the password is correct
-
-                // Add cost to the password verify method
                 if ($user && password_verify($_POST['password'], $user->getPassword())) {
                     // Set the user ID in the session
                     $_SESSION['id_user'] = $user->getId_user();
                     $_SESSION['name']    = $user->getUsername();
-                    header('Location: /codoc'); // Redirect to the homepage
+                    header('Location: /codoc');
                     exit;
                 } else {
                     // Display an error message
-                    echo 'Invalid email or password.';
-                    require_once './view/login.php';
+                    $error = 'Invalid email or password.';
                 }
             } else {
                 // Display an error message
                 $error = 'Email and password are required.';
-                // Redirect to the login view
-                require_once './view/login.php';
             }
         }
         require_once './view/login.php';
