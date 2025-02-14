@@ -3,7 +3,6 @@ class ControllerUser {
     public function login() {
         global $router;
         $title = 'Login | codoc';        // Set the title of the homepage
-        
         $model = new ModelUser();
         $model->isLoggedIn(); // Check if user is already logged in
                               // Check if the form was submitted
@@ -32,7 +31,8 @@ class ControllerUser {
                 // Redirect to the login view
                 require_once './view/login.php';
             }
-        }require_once './view/login.php'; // Include the homepage view
+        }
+        require_once './view/login.php';
     }
 
     public function logout() {
