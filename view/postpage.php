@@ -1,4 +1,6 @@
 <?php 
+$path = "../public/assets/";
+$stylesheet = $path."css/styles.css";
 $title = $data->getTitle();
 $meta_description = $data->getDescription();
 ob_start();
@@ -19,7 +21,7 @@ ob_start();
         <p><?php echo $data->getDescription();?></p>
         <p><?php echo $data->getContent();?></p>
         <p><?php echo $data->getPublished_date()->format('m/d/Y');?></p>
-        <a href="<?php echo $router->generate('deletepost', ['id_post' => $data->getId_post()]); ?>">Delete</a>
+        <a href="<?php echo $router->generate('deletepost', ['id_post' => $data->getId_post()]); ?>"><img class="icons" src="<?= $path?>img/poubelle.svg" alt=""> Delete</a>
         <a href="<?php echo $router->generate('home');?>">Retour</a>
         
     </article>

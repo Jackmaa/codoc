@@ -1,4 +1,6 @@
 <?php
+    $path = "./public/assets/";
+    $stylesheet = $path."css/styles.css";
     $title            = "Bienvenue sur Codoc";
     $meta_description = "Bienvenue sur la page d'accueil de Codoc";
     ob_start();

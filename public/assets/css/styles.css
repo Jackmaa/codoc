@@ -149,9 +149,6 @@ body.light-mode article {
 #sidebar ul li {
   margin: 1rem;
 }
-#sidebar ul li .icons {
-  width: 1.5rem;
-}
 
 /*-----------------------GLOBAL------------------------*/
 a {
@@ -160,6 +157,9 @@ a {
 }
 a:hover {
   color: var(--clr-primary-500);
+}
+a .icons {
+  width: 1.5rem;
 }
 
 /*----------------------- HOMEPAGE-------------------- */

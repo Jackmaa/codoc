@@ -12,19 +12,22 @@ $router->setBasePath('/codoc');
 //HOMEPAGE
 $router->map('GET', '/', 'ControllerPost#home', 'home');
 
-//POSTPAGE
-$router->map('GET', '/postpage/[i:id]', 'ControllerPost#read', 'readPost');
+/*--------POST--------*/
+//READ
+$router->map('GET', '/post/[i:id]', 'ControllerPost#read', 'readPost');
+//CREATE
+$router->map('GET|POST', '/post/create', 'ControllerPost#create', 'createpost');
+//DELETE
+$router->map('GET', '/delete/[i:id_post]', 'ControllerPost#delete', 'deletepost');
+
+/*--------USER--------*/
+
 //USER
 $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
 $router->map('POST', '/register', 'ControllerUser#register', 'register');
 $router->map('GET', '/dashboard', 'ControllerUser#dashboard', 'dashboard');
 
-//CREATEPOST
-$router->map('GET|POST', '/post/create', 'ControllerPost#create', 'createpost');
-
-//DELETEPOST
-$router->map('GET', '/delete/[i:id_post]', 'ControllerPost#delete', 'deletepost');
 
 //404
 $router->map('GET', '/404', 'ControllerPost#notfound', 'notfound');
