@@ -74,15 +74,19 @@ h6 {
 /* Dark Mode */
 body.dark-mode {
   color-scheme: dark;
-  background-color: #121212;
-  color: #ffffff;
+  background-color: #333;
+  color: #e5e5e5;
 }
 
 /* Light Mode */
 body.light-mode {
   color-scheme: light;
-  background-color: #ffffff;
+  background-color: hsl(0, 0%, 90%);
   color: #000000;
+}
+body.light-mode article {
+  box-shadow: 0px 0px 2px 2px #333;
+  border: none;
 }
 
 @property --＠color-1 {
@@ -117,8 +121,7 @@ body.light-mode {
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
   color: #14f6eb;
 }
-
-.codocicon {
+.hero .codocicon {
   height: 6rem;
 }
 
@@ -135,31 +138,34 @@ body.light-mode {
   border-right: 1px solid #14f6eb;
   box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
 }
-
-.header-logo {
+#sidebar .header-logo {
   margin: 2rem 0 2rem 0;
 }
-
-ul {
+#sidebar ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-li {
+#sidebar ul li {
   margin: 1rem;
 }
-
-a {
+#sidebar ul li a {
   color: #14f6eb;
   font-size: 1.5rem;
 }
+
 a:hover {
   color: hsl(310, 100%, 59%);
 }
 
 .icons {
   width: 1.5rem;
+  
+#sidebar ul li a:hover {
+  color: #fff;
+}
+#sidebar ul li a .icons {
+  width: 2rem;
 }
 
 /*----------------------- HOMEPAGE-------------------- */
@@ -221,7 +227,7 @@ article {
   background-color: transparent;
   -webkit-backdrop-filter: blur(120%);
           backdrop-filter: blur(120%);
-  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  box-shadow: var(--box-shadow-secondary);
   border-radius: 20px;
 }
 article.homepage-article:hover {
