@@ -1,6 +1,6 @@
 <?php
-    $path = "./public/assets/";
-    $stylesheet = $path."css/styles.css";
+    $path             = "./public/assets/";
+    $stylesheet       = $path . "css/styles.css";
     $title            = "Bienvenue sur Codoc";
     $meta_description = "Bienvenue sur la page d'accueil de Codoc";
     ob_start();
@@ -23,7 +23,6 @@
 
 
         <?php endforeach; ?>
-        <script src="./public/assets/js/main.js"></script>
 <?php
     $content = ob_get_contents();
     ob_end_clean();
