@@ -69,21 +69,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
   // Update button icon and accessibility label
   function updateButton(mode) {
     const isDarkMode = mode === "dark-mode";
     modeIcon.setAttribute(
       "src",
       isDarkMode
-        ? "./public/assets/img/lightmode.svg"
-        : "./public/assets/img/darkmode.svg"
+        ? "http://localhost/codoc/public/assets/img/lightmode.svg"
+        : "http://localhost/codoc/public/assets/img/darkmode.svg"
     );
     modeToggle.setAttribute(
       "aria-label",
       isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
     );
-  modeLogo.setAttribute("fill", isDarkMode ? "white" : "black");
+    modeLogo.setAttribute("fill", isDarkMode ? "white" : "black");
   }
 });
 
