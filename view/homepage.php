@@ -6,6 +6,7 @@
     ob_start();
 ?>
         <h1>Les derniers articles</h1>
+        <li class="li-flou">
         <?php foreach ($datas as $data): ?>
             <article class="homepage-article">
                 <h2><?php echo $data->post->getTitle(); ?></h2>
@@ -23,6 +24,7 @@
 
 
         <?php endforeach; ?>
+        </li>
 <?php
     $content = ob_get_contents();
     ob_end_clean();

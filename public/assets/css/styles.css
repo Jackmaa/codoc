@@ -167,6 +167,15 @@ section > h1 {
   justify-self: center;
 }
 
+.li-flou {
+  width: 50vw;
+  justify-self: center;
+}
+
+.li-flou:hover article.homepage-article:not(:hover) {
+  filter: blur(15px);
+}
+
 article {
   justify-self: center;
   margin: 1rem;
@@ -178,9 +187,11 @@ article {
           backdrop-filter: blur(120%);
   box-shadow: 0px 8px 21px 8px var(--clr-secondary-100);
   border-radius: 20px;
+  transition: all 0.2s ease-in;
 }
 article.homepage-article:hover {
   border: 1px solid var(--clr-primary-500);
+  box-shadow: 0px 8px 21px 8px var(--clr-primary-100);
   margin-block: 1rem;
   scale: 102%;
 }
