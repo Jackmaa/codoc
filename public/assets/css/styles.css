@@ -79,12 +79,7 @@ body.dark-mode {
 }
 body.dark-mode .hero {
   background-color: #333;
-  box-shadow: inset 0px 8px 21px 8px rgba(20, 246, 235, 0.1), 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
-}
-body.dark-mode #sidebar {
-  background-color: #333;
-  border-right: 1px solid #14f6eb;
-  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  box-shadow: inset 0px 0px 21px 8px rgba(20, 246, 235, 0.1), 0px 0px 21px 8px rgba(20, 246, 235, 0.1);
 }
 
 /* Light Mode */
@@ -138,8 +133,8 @@ body.light-mode article {
   flex-direction: column;
   align-items: center;
   left: 0;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  translate: 0 -50%;
 }
 #sidebar .header-logo {
   margin: 2rem 0 2rem 0;
@@ -176,7 +171,7 @@ section > h1 {
 }
 
 .li-flou:hover article.homepage-article:not(:hover) {
-  filter: blur(15px);
+  filter: blur(1px);
 }
 
 article {
