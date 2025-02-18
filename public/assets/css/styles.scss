@@ -97,7 +97,7 @@ body.dark-mode {
   }
 
   #sidebar {
-    background-color: #111;
+    background-color: #222;
   }
 
   article {
@@ -207,7 +207,13 @@ body.light-mode {
       .icons {
         width: 1.5rem;
       }
+
+      &:hover {
+        scale: 110%;
+      }
     }
+
+    
   }
 }
 
@@ -242,6 +248,7 @@ footer {
 
 
 /*-----------------------GLOBAL------------------------*/
+
 
 a {
   color: var(--clr-secondary-500);
@@ -339,7 +346,7 @@ article {
 
 h1 {
   /* apply variable changes over time */
-  animation: gradient-change 2s linear infinite alternate;
+  animation: gradient-change 20s linear infinite alternate;
   padding-block: 1rem;
   background: linear-gradient(
     /* 
