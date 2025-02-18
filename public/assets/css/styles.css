@@ -153,6 +153,9 @@ body.light-mode article {
 #sidebar ul li {
   margin: 1rem;
 }
+#sidebar ul li .icons {
+  width: 1.5rem;
+}
 
 #sidebar.show {
   transform: translateX(0);
@@ -164,9 +167,23 @@ body.light-mode article {
   opacity: 0;
 }
 
+/*-----------------------FOOTER------------------------*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  padding: 2rem;
+  box-shadow: inset 0px 0px 21px 8px rgba(20, 246, 235, 0.1), 0px 0px 21px 8px rgba(20, 246, 235, 0.1);
+}
+footer .footer-logo {
+  margin: 0.5rem;
+  width: 2rem;
+}
+
 /*-----------------------GLOBAL------------------------*/
 a {
-  color: #14f6eb;
+  color: #fff;
   font-size: 1.5rem;
 }
 a:hover {

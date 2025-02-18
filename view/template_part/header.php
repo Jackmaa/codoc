@@ -30,8 +30,8 @@
                         </div>
                     </li>
                     <li>
-                        <a href="/codoc/"><img class="icons" src="<?php echo $path ?>img/maison.svg" alt="">Accueil
-                    </a>
+                        
+                        <a href="/codoc/"><img class="icons" src="<?php echo $path ?>img/maison.svg" alt="">Accueil</a>
                     </li>
                     <?php if ($_SESSION): ?>
                     <li>
@@ -41,12 +41,12 @@
                     </li>
                     <li>
                         <a href="<?php echo $router->generate('createpost') ?>" >
-                            <img class="icons" src="<?php echo $path ?>img/editer.svg" alt=""> Create codoc
+                            <img class="icons" src="<?php echo $path ?>img/editer.svg" alt="">Create codoc
                         </a>
                     </li>
                     <li>
                         <a href="">
-                            <img class="icons" src="<?php echo $path ?>img/reglages.svg" alt=""> Settings
+                            <img class="icons" src="<?php echo $path ?>img/reglages.svg" alt="">Settings
                         </a>
                     </li>
                     <?php else: ?>
