@@ -87,6 +87,18 @@ body.dark-mode {
   color-scheme: dark;
   background-color: #333;
   color: #e5e5e5;
+
+  .hero {
+    background-color: #333;
+    // border-bottom: 1px solid #14f6eb;
+    box-shadow: inset 0px 8px 21px 8px rgba(20, 246, 235, 0.1),
+      0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  }
+  #sidebar {
+    background-color: #333;
+    border-right: 1px solid #14f6eb;
+    box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+  }
 }
 
 /* Light Mode */
@@ -96,7 +108,7 @@ body.light-mode {
   color: #000000;
 
   article {
-    box-shadow: 0px 0px 2px 2px #333;
+    box-shadow: 0px 0px 2px 2px hsl(0, 0%, 60%);
     border: none;
   }
 }
@@ -132,9 +144,7 @@ body.light-mode {
   font-weight: 900;
   width: 100%;
   height: 8rem;
-  background-color: #333;
-  border-bottom: 1px solid #14f6eb;
-  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
+
   color: #14f6eb;
   .codocicon {
     height: 6rem;
@@ -150,9 +160,6 @@ body.light-mode {
   left: 0;
   top: 0;
   bottom: 0;
-  background-color: #333;
-  border-right: 1px solid #14f6eb;
-  box-shadow: 0px 8px 21px 8px rgba(20, 246, 235, 0.1);
 
   .header-logo {
     margin: 2rem 0 2rem 0;
@@ -205,7 +212,6 @@ article {
   padding: 3rem;
   border: 1px solid #14f6eb;
   background-color: transparent;
-  backdrop-filter: blur(120%);
   box-shadow: 0px 8px 21px 8px var(--clr-secondary-100);
   border-radius: 20px;
   transition: all 0.2s ease-in;
