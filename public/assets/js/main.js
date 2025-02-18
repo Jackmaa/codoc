@@ -89,25 +89,63 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-const heroSection = document.querySelector(".hero.show");
 const sidebar = document.getElementById("sidebar");
+const closeSidebarBtn = document.getElementById("closeSidebar");
+const openSidebarBtn = document.getElementById("openSidebar");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        sidebar.classList.add("hidden");
-        sidebar.classList.remove("show");
-      } else {
-        sidebar.classList.add("show");
-        sidebar.classList.remove("hidden");
-      }
-    });
-  },
-  { root: null, threshold: 0.1 }
-);
+let scrollTimeout;
+let isSidebarForcedClosed =
+  localStorage.getItem("isSidebarForcedClosed") === "true"; // Load saved state
 
-observer.observe(heroSection);
+// Function to show the sidebar
+const showSidebar = () => {
+  if (!isSidebarForcedClosed) {
+    sidebar.classList.add("show");
+    sidebar.classList.remove("hidden");
+  }
+};
+
+// Function to hide the sidebar
+const hideSidebar = () => {
+  sidebar.classList.add("hidden");
+  sidebar.classList.remove("show");
+};
+
+// Initialize sidebar state on page load
+if (isSidebarForcedClosed) {
+  hideSidebar();
+  openSidebarBtn.classList.remove("hidden"); // Show "Open Sidebar" button
+  closeSidebarBtn.classList.add("hidden"); // Hide "Close Sidebar" button
+} else {
+  showSidebar();
+}
+
+// Detect scrolling
+window.addEventListener("scroll", () => {
+  if (!isSidebarForcedClosed) {
+    hideSidebar(); // Hide while scrolling
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(showSidebar, 500); // Show after 500ms of no scrolling
+  }
+});
+
+// Force close the sidebar
+closeSidebarBtn.addEventListener("click", () => {
+  isSidebarForcedClosed = true;
+  localStorage.setItem("isSidebarForcedClosed", "true"); // Save state
+  hideSidebar();
+  openSidebarBtn.classList.remove("hidden");
+  closeSidebarBtn.classList.add("hidden");
+});
+
+// Reopen the sidebar and resume auto behavior
+openSidebarBtn.addEventListener("click", () => {
+  isSidebarForcedClosed = false;
+  localStorage.setItem("isSidebarForcedClosed", "false"); // Save state
+  showSidebar();
+  closeSidebarBtn.classList.remove("hidden");
+  openSidebarBtn.classList.add("hidden");
+});
 
 //LIKE DE POSTS
 
