@@ -94,7 +94,8 @@ const closeSidebarBtn = document.getElementById("closeSidebar");
 const openSidebarBtn = document.getElementById("openSidebar");
 
 let scrollTimeout;
-let isSidebarForcedClosed = false; // Track if sidebar is manually closed
+let isSidebarForcedClosed =
+  localStorage.getItem("isSidebarForcedClosed") === "true"; // Load saved state
 
 // Function to show the sidebar
 const showSidebar = () => {
@@ -110,6 +111,15 @@ const hideSidebar = () => {
   sidebar.classList.remove("show");
 };
 
+// Initialize sidebar state on page load
+if (isSidebarForcedClosed) {
+  hideSidebar();
+  openSidebarBtn.classList.remove("hidden"); // Show "Open Sidebar" button
+  closeSidebarBtn.classList.add("hidden"); // Hide "Close Sidebar" button
+} else {
+  showSidebar();
+}
+
 // Detect scrolling
 window.addEventListener("scroll", () => {
   if (!isSidebarForcedClosed) {
@@ -122,17 +132,19 @@ window.addEventListener("scroll", () => {
 // Force close the sidebar
 closeSidebarBtn.addEventListener("click", () => {
   isSidebarForcedClosed = true;
+  localStorage.setItem("isSidebarForcedClosed", "true"); // Save state
   hideSidebar();
-  openSidebarBtn.classList.remove("hidden"); // Show the open button
-  closeSidebarBtn.classList.add("hidden"); // Hide the close button
+  openSidebarBtn.classList.remove("hidden");
+  closeSidebarBtn.classList.add("hidden");
 });
 
 // Reopen the sidebar and resume auto behavior
 openSidebarBtn.addEventListener("click", () => {
   isSidebarForcedClosed = false;
+  localStorage.setItem("isSidebarForcedClosed", "false"); // Save state
   showSidebar();
-  closeSidebarBtn.classList.remove("hidden"); // Show the close button
-  openSidebarBtn.classList.add("hidden"); // Hide the open button
+  closeSidebarBtn.classList.remove("hidden");
+  openSidebarBtn.classList.add("hidden");
 });
 
 //LIKE DE POSTS
