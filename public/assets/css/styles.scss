@@ -176,6 +176,13 @@ body.light-mode {
   }
 }
 
+#openSidebar {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1;
+}
+
 #sidebar {
   position: fixed;
   left: 0;
@@ -189,6 +196,7 @@ body.light-mode {
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 
   .header-logo {
     margin: 2rem 0 2rem 0;
