@@ -89,6 +89,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+const heroSection = document.querySelector(".hero.show");
+const sidebar = document.getElementById("sidebar");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        sidebar.classList.add("hidden");
+        sidebar.classList.remove("show");
+      } else {
+        sidebar.classList.add("show");
+        sidebar.classList.remove("hidden");
+      }
+    });
+  },
+  { root: null, threshold: 0.1 }
+);
+
+observer.observe(heroSection);
 
 //LIKE DE POSTS
 
