@@ -19,38 +19,38 @@ class ControllerPost {
         require_once './view/postpage.php';
     }
 
-    public function create(){
+    public function create() {
 
         global $router;
-        if($_SERVER['REQUEST_METHOD'] === 'POST'){
-            if(!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['description']) && !empty($_POST['id_user'])){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (! empty($_POST['title']) && ! empty($_POST['content']) && ! empty($_POST['description']) && ! empty($_POST['id_user'])) {
                 $model = new ModelPost();
                 $model->createPost($_POST['title'], nl2br($_POST['content']), $_POST['description'], $_POST['id_user']);
                 echo "Nouceau codoc enregistré avec succès !";
                 header('Location: /codoc');
-            }else{
-                
+            } else {
+
                 $error = "Veuillez remplir tous les champs !";
-                require_once('./view/createpost.php');
+                require_once './view/createpost.php';
             }
-           
-        }else{
-            require_once('./view/createpost.php');
+
+        } else {
+            require_once './view/createpost.php';
         }
-        
+
     }
 
-    public function delete(int $id_post){
+    public function delete(int $id_post) {
 
         global $router;
         var_dump($id_post);
-        $model =new ModelPost();
-        $data = $model->deletePost($id_post);
+        $model = new ModelPost();
+        $data  = $model->deletePost($id_post);
         header('Location: /codoc');
     }
 
-    public function notfound(){
-        require_once('./view/404.php');
+    public function notfound() {
+        require_once './view/404.php';
     }
 
 }

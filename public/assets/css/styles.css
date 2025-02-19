@@ -288,6 +288,9 @@ article .glow-unlike {
 article .glow-like {
   box-shadow: var(--box-shadow-primary);
 }
+article.homepage-article img {
+  display: none;
+}
 
 .ariane {
   text-align: center;
