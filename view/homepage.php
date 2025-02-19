@@ -12,7 +12,7 @@
                 <h2><?php echo $data->post->getTitle(); ?></h2>
                 <p><?php echo $data->username; ?> -<?php echo $data->post->getPublished_date()->format('m/d/Y'); ?></p>
                 <p><?php echo $data->post->getDescription(); ?></p>
-                <p class="clamptext"><?php echo $data->post->getContent(); ?></p>
+                <div class="clamptext"><?php echo $data->post->getContent(); ?></div>
                 <div class="article_footer">
                     <a href="<?php echo $router->generate('readPost', ['id' => $data->post->getId_post()]); ?>" >Read</a>
                     <div class="likes">
