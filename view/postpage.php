@@ -14,7 +14,6 @@
         $url = str_replace('codoc', '<a href="' . $router->generate('home') . '">codoc</a>', $url);
         $url = str_replace('postpage', '<a href="' . $router->generate('home') . '">postpage</a>', $url);
 
-        $_SESSION['id_post'] = $data->getId_post();
     ?>
     <div class="ariane"><?php echo $url ?></div>
     <article>
