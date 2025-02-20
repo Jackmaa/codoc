@@ -8,7 +8,7 @@ class Post {
     private $description;
     private $published_date;
     private $id_user;
-    private $likes;
+    private $like;
 
     public function __construct($datas){
         $this->hydrate($datas);
@@ -49,6 +49,10 @@ class Post {
         return $this->id_user;
     }
 
+    public function getLike(){
+        return $this->like;
+    }
+
 
     //SETTERS
     public function setId_post(int $id_post){
@@ -73,5 +77,9 @@ class Post {
 
     public function setId_user(int $id_user){
         $this->id_user = $id_user;
+    }
+
+    public function setLike(int $like){
+        $this->like = $like;
     }
 }

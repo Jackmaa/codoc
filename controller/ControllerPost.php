@@ -48,12 +48,25 @@ class ControllerPost {
         require_once './view/404.php';
     }
 
-    public function random(){ // Select random id post then header Location to the random post
+    public function displayLike() {
+
+        global $routeur;
+        $model = new ModelPost();
+        $data  = $model->displayLike();
+        // Set the correct response header
+        header("Content-Type: application/json");
+
+        // Ensure the response is JSON
+        echo json_encode($data);
+        exit; // Prevent extra output
+    }
+
+    public function random() { // Select random id post then header Location to the random post
         global $router;
         $model = new ModelPost();
-        $id = $model->randomPost();
+        $id    = $model->randomPost();
 
-        header('Location: /codoc/post/'.$id);
+        header('Location: /codoc/post/' . $id);
     }
 
 }

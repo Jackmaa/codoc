@@ -190,6 +190,17 @@ for (const element of likeButton) {
   });
 }
 
+//REQUETE AJAX POUR AFFICHER LES LIKES
+
+function displayLike() {
+  fetch("http://localhost/codoc/displayLike")
+    .then((response) => response.json()) // Convert response to JSON
+    .then((data) => console.log("Likes Data:", data))
+    .catch((error) => console.error("Error fetching data:", error));
+}
+
+displayLike();
+
 //DashBoard scroll
 
 let carousel = document.querySelector("#dashboard-posts"),
