@@ -19,6 +19,8 @@ $router->map('GET', '/post/[i:id]', 'ControllerPost#read', 'readPost');
 $router->map('GET|POST', '/post/create', 'ControllerPost#create', 'createpost');
 //DELETE
 $router->map('GET', '/delete/[i:id_post]', 'ControllerPost#delete', 'deletepost');
+//RANDOM POST
+$router->map('GET', '/random', 'ControllerPost#random', 'randomPost');
 
 /*--------USER--------*/
 

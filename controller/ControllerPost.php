@@ -53,4 +53,11 @@ class ControllerPost {
         require_once './view/404.php';
     }
 
+    public function random(){ // Select random id post then header Location to the random post
+        global $router;
+        $model = new ModelPost();
+        $id = $model->randomPost();
+        header('Location: /codoc/post/'.$id);
+    }
+
 }

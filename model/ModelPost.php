@@ -44,4 +44,11 @@ class ModelPost extends Model {
             $deletepost->execute();
         }
     }
+
+    public function randomPost(){ // Select random id_post in database
+        $req = $this->getDb()->prepare('SELECT `id_post` FROM `post` ORDER BY RAND();');
+        $req->execute();
+        $id = $req->fetch(PDO::FETCH_ASSOC);
+        return $id['id_post'];
+    }
 }
