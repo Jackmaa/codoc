@@ -189,3 +189,17 @@ for (const element of likeButton) {
     }
   });
 }
+
+//DashBoard scroll
+
+let carousel = document.querySelector("#dashboard-posts"),
+  track = carousel.querySelector("#track"),
+  row = track.querySelector("#row");
+
+// Duplicate row for seamless looping
+let clonedRow = row.cloneNode(true);
+track.appendChild(clonedRow);
+
+// Optional: Clone again if needed
+let anotherClone = row.cloneNode(true);
+track.appendChild(anotherClone);

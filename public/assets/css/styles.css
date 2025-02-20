@@ -244,18 +244,18 @@ section > h1 {
 }
 
 article {
-  justify-self: center;
   margin: 1rem;
   padding: 3rem;
   outline: 1px solid #14f6eb;
   background-color: transparent;
   transition: all 0.2s ease-in;
 }
-article.homepage-article {
+article.homepage-article, article.postpage-article {
+  justify-self: center;
   width: 50vw;
 }
 article.dashboard-article {
-  width: 200px;
+  width: 250px;
 }
 article.homepage-article:hover {
   outline: 1px solid var(--clr-primary-500);
@@ -634,6 +634,28 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
 }
 
 /*----------------------DASHBOARD -------------------------------*/
+#dashboard-posts {
+  overflow-x: hidden;
+}
+#dashboard-posts #track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation: auto-scroll 60s linear infinite;
+}
+#dashboard-posts #row {
+  display: flex;
+  gap: 1rem;
+}
+@keyframes auto-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /*-------------------------------ERROR-404 ---------------*/
 .error404 {
   display: flex;

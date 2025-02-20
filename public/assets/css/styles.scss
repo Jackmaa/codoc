@@ -282,19 +282,20 @@ section > h1 {
 }
 
 article {
-  justify-self: center;
   margin: 1rem;
   padding: 3rem;
   outline: 1px solid #14f6eb;
   background-color: transparent;
   transition: all 0.2s ease-in;
 
-  &.homepage-article {
+  &.homepage-article,
+  &.postpage-article {
+    justify-self: center;
     width: 50vw;
   }
 
   &.dashboard-article {
-    width: 200px;
+    width: 250px;
   }
 
   &.homepage-article:hover {
@@ -723,6 +724,32 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
 }
 
 /*----------------------DASHBOARD -------------------------------*/
+//To change the display of the article on the dashboard view
+//go to the styles of article.dashboard-article (in the homepage styles)
+
+#dashboard-posts {
+  overflow-x: hidden;
+
+  #track {
+    display: flex;
+    width: max-content;
+    animation: auto-scroll 60s linear infinite;
+  }
+
+  #row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @keyframes auto-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
 
 /*-------------------------------ERROR-404 ---------------*/
 .error404 {

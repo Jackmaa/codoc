@@ -28,8 +28,10 @@
                     </div>
                 </div>
                 <li>
-
                     <a href="/codoc/"><img class="icons" src="<?php echo $path ?>img/maison.svg" alt="">Accueil</a>
+                </li>
+                <li>
+                    <a href="/codoc/random"><img class="icons" src="<?php echo $path ?>img/random.svg" alt="">Random</a>
                 </li>
                 <?php if ($_SESSION): ?>
                 <li>
