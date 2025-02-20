@@ -57,7 +57,13 @@ class ControllerPost {
         global $router;
         $model = new ModelPost();
         $id = $model->randomPost();
-        header('Location: /codoc/post/'.$id);
+
+        if($id == $_SESSION['id_post']){
+            $id = $model->randomPost();
+        }
+        if($id != $_SESSION['id_post']) {
+            header('Location: /codoc/post/'.$id);
+        }
     }
 
 }
