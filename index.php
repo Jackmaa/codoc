@@ -28,6 +28,10 @@ $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
 $router->map('POST', '/register', 'ControllerUser#register', 'register');
 $router->map('GET', '/dashboard', 'ControllerUser#dashboard', 'dashboard');
 
+/*--------AJAX--------*/
+
+$router->map('GET', '/displayLike', 'ControllerPost#displayLike', 'displayLike' );
+
 
 //404
 $router->map('GET', '/404', 'ControllerPost#notfound', 'notfound');

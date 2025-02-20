@@ -189,3 +189,20 @@ for (const element of likeButton) {
     }
   });
 }
+
+
+//REQUETE AJAX POUR AFFICHER LES LIKES
+
+
+onload = function () {
+  this.fetch("http://localhost/codoc/displayLike").then(
+    (response) => { response.json() }
+  ).then(
+    (data) => {
+      const countLike = document.querySelector('.likes');
+      const likeContainer = document.createElement('span');
+      likeContainer.innerHTML = data.like;
+      countLike.append(likeContainer);
+    }
+  )
+}

@@ -43,7 +43,7 @@ class ControllerPost {
     public function delete(int $id_post) {
 
         global $router;
-        var_dump($id_post);
+        
         $model = new ModelPost();
         $data  = $model->deletePost($id_post);
         header('Location: /codoc');
@@ -51,6 +51,14 @@ class ControllerPost {
 
     public function notfound() {
         require_once './view/404.php';
+    }
+
+    public function displayLike(){
+
+        global $routeur;
+        $model = new ModelPost();
+        $data = $model->displayLike();
+        require_once './view/homepage.php';
     }
 
 }
