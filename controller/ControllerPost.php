@@ -11,7 +11,7 @@ class ControllerPost {
     }
 
     public function read($id) {
-        $stylesheet = "../public/assets/css/styles.css";
+
         global $router;
         $model = new ModelPost();
         $data  = $model->read($id);
@@ -26,24 +26,19 @@ class ControllerPost {
             if (! empty($_POST['title']) && ! empty($_POST['content']) && ! empty($_POST['description']) && ! empty($_POST['id_user'])) {
                 $model = new ModelPost();
                 $model->createPost($_POST['title'], nl2br($_POST['content']), $_POST['description'], $_POST['id_user']);
-                echo "Nouceau codoc enregistré avec succès !";
                 header('Location: /codoc');
             } else {
-
                 $error = "Veuillez remplir tous les champs !";
                 require_once './view/createpost.php';
             }
-
         } else {
             require_once './view/createpost.php';
         }
-
     }
 
     public function delete(int $id_post) {
 
         global $router;
-        var_dump($id_post);
         $model = new ModelPost();
         $data  = $model->deletePost($id_post);
         header('Location: /codoc');
