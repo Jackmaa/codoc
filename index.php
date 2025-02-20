@@ -23,13 +23,11 @@ $router->map('GET', '/delete/[i:id_post]', 'ControllerPost#delete', 'deletepost'
 $router->map('GET', '/random', 'ControllerPost#random', 'randomPost');
 
 /*--------USER--------*/
-
 //USER
 $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
 $router->map('POST', '/register', 'ControllerUser#register', 'register');
 $router->map('GET', '/dashboard', 'ControllerUser#dashboard', 'dashboard');
-
 
 //404
 $router->map('GET', '/404', 'ControllerPost#notfound', 'notfound');

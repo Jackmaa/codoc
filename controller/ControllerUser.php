@@ -2,7 +2,7 @@
 class ControllerUser {
     public function login() {
         global $router;
-        $title = 'Login | codoc';        // Set the title of the homepage
+        $title = 'Login | codoc'; // Set the title of the homepage
         $model = new ModelUser();
         $model->isLoggedIn(); // Check if user is already logged in
 
@@ -66,6 +66,11 @@ class ControllerUser {
     }
 
     public function dashboard() {
+        global $router;
+        $user       = new ModelUser;
+        $user       = $user->getUser($_SESSION['id_user']);
+        $user_Posts = new ModelPost;
+        $user_Posts = $user_Posts->readPostUser($_SESSION['id_user']);
         require_once './view/dashboard.php';
     }
 }

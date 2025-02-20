@@ -186,6 +186,12 @@ body.light-mode a:hover {
 #sidebar ul li:hover {
   scale: 110%;
 }
+#sidebar #closeSidebar {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1;
+}
 
 #sidebar.show {
   transform: translateX(0);
@@ -238,13 +244,18 @@ section > h1 {
 }
 
 article {
-  justify-self: center;
   margin: 1rem;
-  width: 50vw;
   padding: 3rem;
   outline: 1px solid #14f6eb;
   background-color: transparent;
   transition: all 0.2s ease-in;
+}
+article.homepage-article, article.postpage-article {
+  justify-self: center;
+  width: 50vw;
+}
+article.dashboard-article {
+  width: 250px;
 }
 article.homepage-article:hover {
   outline: 1px solid var(--clr-primary-500);
@@ -623,40 +634,28 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
 }
 
 /*----------------------DASHBOARD -------------------------------*/
-/* header {
-  user-select: none;
-  width: 100%;
-  display: grid;
-  place-self: center;
-  justify-items: center;
-  padding-block: 1rem;
-  margin-inline: 1rem;
-  & .header-logo {
-    width: 50px;
-  }
-  & .user-card {
-    width: 100%;
-    gap: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    & img {
-      width: 40px;
-      aspect-ratio: 1;
-      border-radius: 100%;
-      box-shadow: 0 0 3px 3px var(--blue-primary);
-    }
-
-    & .greetings {
-      font-size: 1.5rem;
-    }
-  }
-} 
-section#tasks {
-  padding-inline: 1rem;
+#dashboard-posts {
+  overflow-x: hidden;
 }
-*/
+#dashboard-posts #track {
+  display: flex;
+  width: -moz-max-content;
+  width: max-content;
+  animation: auto-scroll 60s linear infinite;
+}
+#dashboard-posts #row {
+  display: flex;
+  gap: 1rem;
+}
+@keyframes auto-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 /*-------------------------------ERROR-404 ---------------*/
 .error404 {
   display: flex;

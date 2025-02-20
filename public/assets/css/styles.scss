@@ -219,6 +219,12 @@ body.light-mode {
       }
     }
   }
+  #closeSidebar {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    z-index: 1;
+  }
 }
 
 #sidebar.show {
@@ -276,13 +282,21 @@ section > h1 {
 }
 
 article {
-  justify-self: center;
   margin: 1rem;
-  width: 50vw;
   padding: 3rem;
   outline: 1px solid #14f6eb;
   background-color: transparent;
   transition: all 0.2s ease-in;
+
+  &.homepage-article,
+  &.postpage-article {
+    justify-self: center;
+    width: 50vw;
+  }
+
+  &.dashboard-article {
+    width: 250px;
+  }
 
   &.homepage-article:hover {
     outline: 1px solid var(--clr-primary-500);
@@ -710,40 +724,32 @@ input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
 }
 
 /*----------------------DASHBOARD -------------------------------*/
-/* header {
-  user-select: none;
-  width: 100%;
-  display: grid;
-  place-self: center;
-  justify-items: center;
-  padding-block: 1rem;
-  margin-inline: 1rem;
-  & .header-logo {
-    width: 50px;
-  }
-  & .user-card {
-    width: 100%;
-    gap: 1rem;
+//To change the display of the article on the dashboard view
+//go to the styles of article.dashboard-article (in the homepage styles)
+
+#dashboard-posts {
+  overflow-x: hidden;
+
+  #track {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    width: max-content;
+    animation: auto-scroll 60s linear infinite;
+  }
 
-    & img {
-      width: 40px;
-      aspect-ratio: 1;
-      border-radius: 100%;
-      box-shadow: 0 0 3px 3px var(--blue-primary);
+  #row {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @keyframes auto-scroll {
+    from {
+      transform: translateX(0);
     }
-
-    & .greetings {
-      font-size: 1.5rem;
+    to {
+      transform: translateX(-50%);
     }
   }
-} 
-section#tasks {
-  padding-inline: 1rem;
 }
-*/
 
 /*-------------------------------ERROR-404 ---------------*/
 .error404 {

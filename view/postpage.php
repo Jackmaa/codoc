@@ -16,15 +16,13 @@
 
     ?>
     <div class="ariane"><?php echo $url ?></div>
-    <article>
-
+    <article class="postpage-article">
         <h1><?php echo $data->getTitle(); ?></h1>
         <p><?php echo $data->getDescription(); ?></p>
         <p><?php echo $data->getContent(); ?></p>
         <p><?php echo $data->getPublished_date()->format('m/d/Y'); ?></p>
         <a href="<?php echo $router->generate('deletepost', ['id_post' => $data->getId_post()]); ?>"><img class="icons" src="<?php echo $path ?>img/poubelle.svg" alt=""> Delete</a>
         <a href="<?php echo $router->generate('home'); ?>">Retour</a>
-
     </article>
 <?php
     $content = ob_get_contents();
