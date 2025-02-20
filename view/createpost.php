@@ -31,6 +31,8 @@
         </div>
         <script src="https://cdn.tiny.cloud/1/17i1uxz28w5ogrsvbx8mwfgn3wv31qq77fgqsinp19cyd3nu/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
         <script>
+            // Refresh the page on switching the mode
+
             document.getElementById("modeIcon").addEventListener("click", () => {
                 location.reload();
             });
