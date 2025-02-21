@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 // Autoload dependencies
 require_once './vendor/autoload.php';
 require_once './vendor/altorouter/altorouter/AltoRouter.php';
@@ -28,6 +29,12 @@ $router->map('GET|POST', '/login', 'ControllerUser#login', 'login');
 $router->map('GET', '/logout', 'ControllerUser#logout', 'logout');
 $router->map('POST', '/register', 'ControllerUser#register', 'register');
 $router->map('GET', '/dashboard', 'ControllerUser#dashboard', 'dashboard');
+
+/*--------AJAX--------*/
+
+$router->map('GET', '/displayLike/[i:id_post]', 'ControllerPost#displayLike', 'displayLike');
+
+$router->map('GET', '/likePost/[i:id_post]/[i:id_user]','ControllerPost#likePost', 'likePost');
 
 //404
 $router->map('GET', '/404', 'ControllerPost#notfound', 'notfound');

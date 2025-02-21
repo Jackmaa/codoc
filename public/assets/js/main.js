@@ -150,7 +150,6 @@ openSidebarBtn.addEventListener("click", () => {
 //LIKE DE POSTS
 
 const divLikes = document.querySelectorAll(".likes");
-const likeButton = document.querySelectorAll(".like_button");
 
 function updateGlowEffect(element) {
   let glowEffect = element.previousElementSibling;
@@ -163,43 +162,98 @@ function updateGlowEffect(element) {
   }
 }
 
+
+
 for (const element of divLikes) {
-  let likeCount = 0;
+  const dataId_post = element.getAttribute('data-id_post');
+  const dataId_user = element.getAttribute('data-id_user');
+  const likeButton = element.firstElementChild;
+
+  fetch(`/codoc/displayLike/${dataId_post}`)
+  .then((response) => response.json()) // Convert response to JSON
+  .then((data) => display(data))
+  // .catch((error) => console.error("Error fetching data:", error));
+  
+  function display (likeCount) { 
+    let likeCounters = document.createElement("span");
+    likeCounters.innerHTML = likeCount[0].like;
+    element.appendChild(likeCounters);
+  }
+    fetch(`/codoc/likePost/${dataId_post}/${dataId_user}`)
+    .then((response) => response.json())
+    .then((data) => {
+      if(data){
+        likeButton.classList.remove("glow-unlike")
+        likeButton.classList.add("glow-like")
+        likeButton.nextElementSibling.setAttribute("fill", "#f809b0")
+      }else{
+        likeButton.nextElementSibling.setAttribute("fill", "#14f6eb")
+      }
+      }) 
+  
+    // element.setAttribute("fill", "#14f6eb");
+    // element.addEventListener("click", () => {
+    //   let likeCount = parseInt(element.nextElementSibling.innerHTML);
+    //   if (element.getAttribute("fill") === "#f809b0") {
+    //     updateGlowEffect(element);
+    //     element.setAttribute("fill", "#14f6eb");
+    //     likeCount--;
+    //     //element next sibling = like counter
+    //     element.nextElementSibling.innerHTML = likeCount;
+    //   } else {
+    //     updateGlowEffect(element);
+    //     element.setAttribute("fill", "#f809b0");
+    //     likeCount++;
+    //     element.nextElementSibling.innerHTML = likeCount;
+    //   }
+    // });
+  }
+
+ function display (likeCount) { 
   let likeCounters = document.createElement("span");
-  likeCounters.innerHTML = likeCount;
+  likeCounters.innerHTML = likeCount[0].like;
   element.appendChild(likeCounters);
 }
 
-for (const element of likeButton) {
-  //element = like_button
-  element.setAttribute("fill", "#14f6eb");
-  element.addEventListener("click", () => {
-    let likeCount = parseInt(element.nextElementSibling.innerHTML);
-    if (element.getAttribute("fill") === "#f809b0") {
-      updateGlowEffect(element);
-      element.setAttribute("fill", "#14f6eb");
-      likeCount--;
-      //element next sibling = like counter
-      element.nextElementSibling.innerHTML = likeCount;
-    } else {
-      updateGlowEffect(element);
-      element.setAttribute("fill", "#f809b0");
-      likeCount++;
-      element.nextElementSibling.innerHTML = likeCount;
-    }
-  });
-}
+
+// for (const element of likeButton) {
+//   //element = like_button
+//   console.log(dataId_post);
+//   // console.log(dataId_user);
+//   fetch(`/codoc/likePost/${dataId_post}/${dataId_user}`)
+//   .then((response) => response.json())
+//   .then((data) => console.log(data)) 
+
+//   element.setAttribute("fill", "#14f6eb");
+//   element.addEventListener("click", () => {
+//     let likeCount = parseInt(element.nextElementSibling.innerHTML);
+//     if (element.getAttribute("fill") === "#f809b0") {
+//       updateGlowEffect(element);
+//       element.setAttribute("fill", "#14f6eb");
+//       likeCount--;
+//       //element next sibling = like counter
+//       element.nextElementSibling.innerHTML = likeCount;
+//     } else {
+//       updateGlowEffect(element);
+//       element.setAttribute("fill", "#f809b0");
+//       likeCount++;
+//       element.nextElementSibling.innerHTML = likeCount;
+//     }
+//   });
+// }
+
+//REQUETE AJAX POUR AFFICHER LES LIKES
 
 //DashBoard scroll
 
-let carousel = document.querySelector("#dashboard-posts"),
-  track = carousel.querySelector("#track"),
-  row = track.querySelector("#row");
+// let carousel = document.querySelector("#dashboard-posts"),
+//   track = carousel.querySelector("#track"),
+//   row = track.querySelector("#row");
 
-// Duplicate row for seamless looping
-let clonedRow = row.cloneNode(true);
-track.appendChild(clonedRow);
+// // Duplicate row for seamless looping
+// let clonedRow = row.cloneNode(true);
+// track.appendChild(clonedRow);
 
-// Optional: Clone again if needed
-let anotherClone = row.cloneNode(true);
-track.appendChild(anotherClone);
+// // Optional: Clone again if needed
+// let anotherClone = row.cloneNode(true);
+// track.appendChild(anotherClone);

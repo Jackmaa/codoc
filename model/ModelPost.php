@@ -4,18 +4,7 @@ class ModelPost extends Model {
 
     public function drawPage() {
 
-        $req = $this->getDb()->query(
-            'SELECT
-            `post`.`id_post`,
-            `post`.`title`,
-            `post`.`content`,
-            `post`.`description`,
-            `post`.`published_date`,
-            `post`.`id_user`,
-            `user`.`username`
-            FROM `post`
-            INNER JOIN `user` ON `post`.`id_user` = `user`.`id_user`
-            ORDER BY `post`.`id_post` DESC');
+        $req = $this->getDb()->query('SELECT `post`.`id_post`, `post`.`title`, `post`.`content`, `post`.`description`, `post`.`published_date`, `post`.`id_user`,`post`.`like`, `user`.`username` FROM `post` INNER JOIN `user` ON `post`.`id_user` = `user`.`id_user` ORDER BY `post`.`id_post` DESC');
 
         $arrayobj = [];
 
@@ -68,10 +57,48 @@ class ModelPost extends Model {
         }
     }
 
-    public function randomPost(){ // Select random id_post in database
+    public function randomPost() { // Select random id_post in database
         $req = $this->getDb()->prepare('SELECT `id_post` FROM `post` ORDER BY RAND();');
         $req->execute();
         $id = $req->fetch(PDO::FETCH_ASSOC);
         return $id['id_post'];
     }
+    public function displayLike(int $id_post) {
+
+        $getlike = $this->getDb()->prepare('SELECT COUNT(`id_post`) AS `like` FROM post_like WHERE `id_post` = :id_post');
+        $getlike->bindParam(':id_post', $id_post,PDO::PARAM_INT);
+        $getlike->execute();
+        return $getlike->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+    public function getLike(int $id_post, int $id_user){
+
+        $req = $this->getDb()->prepare('SELECT `id_post` FROM post_like WHERE `id_post` = :id_post AND `id_user` = :id_user');
+        $req->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $req->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $req->execute();
+        if($req->rowcount()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function dislike(int $id_post, int $id_user){
+
+        $req = $this->getDb()->prepare('DELETE FROM post_like WHERE `id_post` = :id_post AND `id_user` = :id_user');
+        $req->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $req->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $req->execute();
+    }
+
+    public function like(int $id_post, int $id_user){
+
+        $req = $this->getDb()->prepare('INSERT INTO post_like(`id_post`, `id_user`) VALUES (:id_post, :id_user)');
+        $req->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $req->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $req->execute();
+    }
+
 }
