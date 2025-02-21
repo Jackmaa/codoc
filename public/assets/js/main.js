@@ -151,109 +151,97 @@ openSidebarBtn.addEventListener("click", () => {
 
 const divLikes = document.querySelectorAll(".likes");
 
-function updateGlowEffect(element) {
-  let glowEffect = element.previousElementSibling;
-  if (glowEffect.classList.contains("glow-unlike")) {
-    glowEffect.classList.toggle("glow-unlike");
-    glowEffect.classList.toggle("glow-like");
-  } else {
-    glowEffect.classList.toggle("glow-like");
-    glowEffect.classList.toggle("glow-unlike");
-  }
-}
-
-
-
 for (const element of divLikes) {
-  const dataId_post = element.getAttribute('data-id_post');
-  const dataId_user = element.getAttribute('data-id_user');
-  const likeButton = element.firstElementChild;
+  const dataId_post = element.getAttribute("data-id_post");
+  const dataId_user = element.getAttribute("data-id_user");
+  const likeGlow = element.firstElementChild;
+  const likeButton = likeGlow.nextElementSibling;
 
+  //Fetching the number of likes for a given Post ID
   fetch(`/codoc/displayLike/${dataId_post}`)
-  .then((response) => response.json()) // Convert response to JSON
-  .then((data) => display(data))
-  // .catch((error) => console.error("Error fetching data:", error));
-  
-  function display (likeCount) { 
+    .then((response) => response.json())
+    .then((data) => display(data)) //Call the function to display the number we get
+    .catch((error) => console.error("Error fetching data:", error));
+
+  //function called in the fetch
+  function display(likeCount) {
     let likeCounters = document.createElement("span");
     likeCounters.innerHTML = likeCount[0].like;
     element.appendChild(likeCounters);
   }
-    fetch(`/codoc/likePost/${dataId_post}/${dataId_user}`)
-    .then((response) => response.json())
-    .then((data) => {
-      if(data){
-        likeButton.classList.remove("glow-unlike")
-        likeButton.classList.add("glow-like")
-        likeButton.nextElementSibling.setAttribute("fill", "#f809b0")
-      }else{
-        likeButton.nextElementSibling.setAttribute("fill", "#14f6eb")
+
+  //After display the total likes from a post we check if the connected user has liked
+  // the post we are looping on
+  fetch(`/codoc/likePost/${dataId_post}/${dataId_user}`)
+    .then((response) => {
+      if (!response.ok) {
+        //this clause is only useful if the user isn't logged in
+        return;
+      } else {
+        return response.json();
       }
-      }) 
-  
-    // element.setAttribute("fill", "#14f6eb");
-    // element.addEventListener("click", () => {
-    //   let likeCount = parseInt(element.nextElementSibling.innerHTML);
-    //   if (element.getAttribute("fill") === "#f809b0") {
-    //     updateGlowEffect(element);
-    //     element.setAttribute("fill", "#14f6eb");
-    //     likeCount--;
-    //     //element next sibling = like counter
-    //     element.nextElementSibling.innerHTML = likeCount;
-    //   } else {
-    //     updateGlowEffect(element);
-    //     element.setAttribute("fill", "#f809b0");
-    //     likeCount++;
-    //     element.nextElementSibling.innerHTML = likeCount;
-    //   }
-    // });
+    })
+    .then((data) => {
+      if (data) {
+        //data is type of Boolean (true if liked)
+        //so we apply the classes / fill needed
+        likeGlow.classList.remove("glow-unlike");
+        likeGlow.classList.add("glow-like");
+        likeButton.setAttribute("fill", "#f809b0");
+      } else {
+        likeButton.setAttribute("fill", "#14f6eb");
+      }
+    });
+
+  //Here we handle the click on the button
+  //and change the count of likes in accordance
+  likeButton.addEventListener("click", () => {
+    if (!dataId_user) {
+      window.location.href = "/codoc/login";
+    }
+    const spanCounter = likeButton.nextElementSibling;
+    let likeCounters = parseInt(spanCounter.innerHTML);
+
+    if (likeButton.getAttribute("fill") === "#f809b0") {
+      likeButton.setAttribute("fill", "#14f6eb");
+      updateGlowEffect();
+      likeCounters--;
+      spanCounter.innerHTML = likeCounters;
+      console.log(likeCounters);
+    } else {
+      likeButton.setAttribute("fill", "#f809b0");
+      updateGlowEffect();
+      likeCounters++;
+      spanCounter.innerHTML = likeCounters;
+      console.log(likeCounters);
+    }
+  });
+
+  function updateGlowEffect() {
+    if (likeGlow.classList.contains("glow-unlike")) {
+      likeGlow.classList.toggle("glow-unlike");
+      likeGlow.classList.toggle("glow-like");
+    } else {
+      likeGlow.classList.toggle("glow-like");
+      likeGlow.classList.toggle("glow-unlike");
+    }
   }
 
- function display (likeCount) { 
-  let likeCounters = document.createElement("span");
-  likeCounters.innerHTML = likeCount[0].like;
-  element.appendChild(likeCounters);
+  //since our svg have a empty fill, we need to fill them
+  // in the case no user is logged in
+  likeButton.setAttribute("fill", "#14f6eb");
 }
-
-
-// for (const element of likeButton) {
-//   //element = like_button
-//   console.log(dataId_post);
-//   // console.log(dataId_user);
-//   fetch(`/codoc/likePost/${dataId_post}/${dataId_user}`)
-//   .then((response) => response.json())
-//   .then((data) => console.log(data)) 
-
-//   element.setAttribute("fill", "#14f6eb");
-//   element.addEventListener("click", () => {
-//     let likeCount = parseInt(element.nextElementSibling.innerHTML);
-//     if (element.getAttribute("fill") === "#f809b0") {
-//       updateGlowEffect(element);
-//       element.setAttribute("fill", "#14f6eb");
-//       likeCount--;
-//       //element next sibling = like counter
-//       element.nextElementSibling.innerHTML = likeCount;
-//     } else {
-//       updateGlowEffect(element);
-//       element.setAttribute("fill", "#f809b0");
-//       likeCount++;
-//       element.nextElementSibling.innerHTML = likeCount;
-//     }
-//   });
-// }
-
-//REQUETE AJAX POUR AFFICHER LES LIKES
 
 //DashBoard scroll
 
-// let carousel = document.querySelector("#dashboard-posts"),
-//   track = carousel.querySelector("#track"),
-//   row = track.querySelector("#row");
+let carousel = document.querySelector("#dashboard-posts"),
+  track = carousel.querySelector("#track"),
+  row = track.querySelector("#row");
 
-// // Duplicate row for seamless looping
-// let clonedRow = row.cloneNode(true);
-// track.appendChild(clonedRow);
+// Duplicate row for seamless looping
+let clonedRow = row.cloneNode(true);
+track.appendChild(clonedRow);
 
-// // Optional: Clone again if needed
-// let anotherClone = row.cloneNode(true);
-// track.appendChild(anotherClone);
+// Optional: Clone again if needed
+let anotherClone = row.cloneNode(true);
+track.appendChild(anotherClone);
