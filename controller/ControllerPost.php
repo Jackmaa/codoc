@@ -48,17 +48,28 @@ class ControllerPost {
         require_once './view/404.php';
     }
 
-    public function displayLike() {
+    public function displayLike(int $id_post) {
 
         global $routeur;
         $model = new ModelPost();
-        $data  = $model->displayLike();
+        $data  = $model->displayLike($id_post);
         // Set the correct response header
         header("Content-Type: application/json");
 
         // Ensure the response is JSON
         echo json_encode($data);
         exit; // Prevent extra output
+    }
+
+    public function likePost(int $id_post, int $id_user){
+
+        $model = new ModelPost();
+        $isLiked = $model->getLike($id_post, $id_user);
+        header("Content-Type: application/json");
+        echo json_encode($isLiked);
+        // if($isLiked){
+            
+        // }
     }
 
     public function random() { // Select random id post then header Location to the random post

@@ -63,11 +63,42 @@ class ModelPost extends Model {
         $id = $req->fetch(PDO::FETCH_ASSOC);
         return $id['id_post'];
     }
-    public function displayLike() {
+    public function displayLike(int $id_post) {
 
-        $getlike = $this->getDb()->prepare('SELECT `like` FROM post');
+        $getlike = $this->getDb()->prepare('SELECT COUNT(`id_post`) AS `like` FROM post_like WHERE `id_post` = :id_post');
+        $getlike->bindParam(':id_post', $id_post,PDO::PARAM_INT);
         $getlike->execute();
-        return $getlike->fetch(PDO::FETCH_ASSOC);
+        return $getlike->fetchAll(PDO::FETCH_ASSOC);
 
     }
+
+    public function getLike(int $id_post, int $id_user){
+
+        $req = $this->getDb()->prepare('SELECT `id_post` FROM post_like WHERE `id_post` = :id_post AND `id_user` = :id_user');
+        $req->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $req->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $req->execute();
+        if($req->rowcount()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function dislike(int $id_post, int $id_user){
+
+        $req = $this->getDb()->prepare('DELETE FROM post_like WHERE `id_post` = :id_post AND `id_user` = :id_user');
+        $req->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $req->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $req->execute();
+    }
+
+    public function like(int $id_post, int $id_user){
+
+        $req = $this->getDb()->prepare('INSERT INTO post_like(`id_post`, `id_user`) VALUES (:id_post, :id_user)');
+        $req->bindParam(':id_post', $id_post, PDO::PARAM_INT);
+        $req->bindParam(':id_user', $id_user, PDO::PARAM_INT);
+        $req->execute();
+    }
+
 }
