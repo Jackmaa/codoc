@@ -175,26 +175,27 @@ for (const element of divLikes) {
 
   //After display the total likes from a post we check if the connected user has liked
   // the post we are looping on
-  fetch(`/codoc/likePost/${dataId_post}/${dataId_user}`)
-    .then((response) => {
-      if (!response.ok) {
-        //this clause is only useful if the user isn't logged in
-        return;
-      } else {
-        return response.json();
-      }
-    })
-    .then((data) => {
-      if (data) {
-        //data is type of Boolean (true if liked)
-        //so we apply the classes / fill needed
-        likeGlow.classList.remove("glow-unlike");
-        likeGlow.classList.add("glow-like");
-        likeButton.setAttribute("fill", "#f809b0");
-      } else {
-        likeButton.setAttribute("fill", "#14f6eb");
-      }
-    });
+  if (dataId_user) {
+    fetch(`/codoc/likePost/${dataId_post}/${dataId_user}`)
+      .then((response) => {
+        if (!response.ok) {
+          return;
+        } else {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        if (data) {
+          //data is type of Boolean (true if liked)
+          //so we apply the classes / fill needed
+          likeGlow.classList.remove("glow-unlike");
+          likeGlow.classList.add("glow-like");
+          likeButton.setAttribute("fill", "#f809b0");
+        } else {
+          likeButton.setAttribute("fill", "#14f6eb");
+        }
+      });
+  }
 
   //Here we handle the click on the button
   //and change the count of likes in accordance
