@@ -28,7 +28,7 @@ class ControllerUser {
                 $error = 'Email and password are required.';
             }
         }
-        require_once './view/login.php';
+        require_once './view/authentification.php';
     }
 
     public function logout() {
@@ -47,21 +47,21 @@ class ControllerUser {
                         $model->createUser($_POST['username'], $_POST['email'], $_POST['password']);
                         echo "Compte crée avec succès !";
 
-                        require_once './view/login.php';
+                        require_once './view/authentification.php';
                     } else {
                         echo "Email or username is already taken.";
-                        require_once './view/login.php';
+                        require_once './view/authentification.php';
                     }
                 } else {
                     echo 'Passwords do not match.';
-                    require_once './view/login.php';
+                    require_once './view/authentification.php';
                 }
             } else {
                 echo 'Email, password, and password verify are required.';
-                require_once './view/login.php';
+                require_once './view/authentification.php';
             }
         } else {
-            require_once './view/login.php';
+            require_once './view/authentification.php';
         }
     }
 
