@@ -79,6 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
         ? "http://localhost/codoc/public/assets/img/lightmode.svg"
         : "http://localhost/codoc/public/assets/img/darkmode.svg"
     );
+
+    modeIcon.setAttribute(
+      "alt",
+      isDarkMode ? "Light mode icon" : "Dark mode icon"
+    );
+
     modeToggle.setAttribute(
       "aria-label",
       isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"
