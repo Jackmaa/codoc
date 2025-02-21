@@ -149,6 +149,9 @@ openSidebarBtn.addEventListener("click", () => {
 
 //LIKE DE POSTS
 
+//We still to update the DataBase side when we like or dislike the post
+// ==>> TO DO URGENT <<==
+
 const divLikes = document.querySelectorAll(".likes");
 
 for (const element of divLikes) {
