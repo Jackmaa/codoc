@@ -45,3 +45,4 @@ You can install the dependencies by running:
 ```bash
 composer install
 ```
+![BANNER](https://i.imgur.com/b5p4bnw.png)
