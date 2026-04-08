@@ -1,0 +1,41 @@
+# Global env files
+.env
+.env.local
+.env.*.local
+
+# OS and editor artifacts
+.DS_Store
+.idea/
+.vscode/
+!.vscode/extensions.json
+*.sw?
+
+# API (Symfony/PHP)
+codoc-api/var/
+codoc-api/vendor/
+codoc-api/public/bundles/
+codoc-api/phpunit.xml
+codoc-api/.phpunit.cache/
+codoc-api/config/secrets/prod/prod.decrypt.private.php
+codoc-api/config/jwt/*.pem
+
+# Frontend (Vue/Vite)
+codoc-front/node_modules/
+codoc-front/dist/
+codoc-front/dist-ssr/
+codoc-front/coverage/
+codoc-front/screenshot/
+codoc-front/logs/
+codoc-front/*.log
+codoc-front/npm-debug.log*
+codoc-front/yarn-debug.log*
+codoc-front/yarn-error.log*
+codoc-front/pnpm-debug.log*
+codoc-front/lerna-debug.log*
+codoc-front/.eslintcache
+codoc-front/*.tsbuildinfo
+codoc-front/*.timestamp-*-*.mjs
+
+# E2E artifacts (if enabled later)
+codoc-front/cypress/videos/
+codoc-front/cypress/screenshots/

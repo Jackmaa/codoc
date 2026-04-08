@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Codoc brand colors — matching the original design */
+@theme {
+  --color-codoc-cyan: #14F7EB;
+  --color-codoc-magenta: #F809B0;
+  --color-codoc-dark: #222;
+  --color-codoc-darker: #333;
+  --color-codoc-card: #444;
+  --color-codoc-light: #e5e5e5;
+  --color-codoc-gray: #777;
+}
+
+/* Animated gradient on headings — signature codoc style */
+@property --codoc-color-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #F809B0;
+}
+@property --codoc-color-2 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #14F7EB;
+}
+
+@keyframes gradient-shift {
+  to {
+    --codoc-color-1: #14F7EB;
+    --codoc-color-2: #F809B0;
+  }
+}
+
+/* Apply to any element with .codoc-gradient class */
+.codoc-gradient {
+  animation: gradient-shift 20s linear infinite alternate;
+  background: linear-gradient(to right in oklch, var(--codoc-color-1), var(--codoc-color-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Homepage blur effect — unfocused articles blur when hovering the list */
+.post-list:hover .post-card:not(:hover) {
+  filter: blur(1px);
+  transition: filter 0.2s ease;
+}
+.post-card {
+  transition: all 0.2s ease;
+}
+
+/* Glow effect on card hover */
+.post-card:hover {
+  box-shadow: 0px 8px 21px 8px rgba(248, 9, 176, 0.1);
+  scale: 1.02;
+}
+
+/* Clamp text to 4 lines */
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
